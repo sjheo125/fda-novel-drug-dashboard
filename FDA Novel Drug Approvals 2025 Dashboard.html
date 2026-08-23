@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDA 2025 Novel Drug Approvals Dashboard</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Pretendard", "Segoe UI", -apple-system, "Apple SD Gothic Neo", Arial, sans-serif;
+  font-size: 13px;
+  background: #f0f2f7;
+  color: #1f2328;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrap {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+header {
+  background: linear-gradient(135deg, #1a3a6e 0%, #2657a8 100%);
+  color: #fff;
+  padding: 28px 36px 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(26,58,110,0.18);
+}
+
+header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 13px;
+  opacity: 0.82;
+  line-height: 1.6;
+}
+
+.stats-bar {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 20px;
+  box-shadow: 0 2px 8px rgba(20,30,60,0.07);
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+}
+
+.stat-card .val {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2657a8;
+  line-height: 1;
+}
+
+.stat-card .lbl {
+  font-size: 11px;
+  color: #5b6472;
+  margin-top: 5px;
+}
+
+.table-wrap {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(20,30,60,0.08);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background: #1a3a6e;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 11px 10px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+thead th:first-child { border-radius: 10px 0 0 0; }
+thead th:last-child { border-radius: 0 10px 0 0; }
+
+tbody tr {
+  border-bottom: 1px solid #e6e8ec;
+  transition: background 0.12s;
+}
+
+tbody tr:hover { background: #f4f7fd; }
+tbody tr:last-child { border-bottom: none; }
+
+td {
+  padding: 9px 10px;
+  vertical-align: top;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #1f2328;
+}
+
+td.num { color: #8a94a6; font-size: 11px; text-align: center; width: 36px; }
+td.drug-name { font-weight: 700; color: #16243f; font-size: 13.5px; white-space: nowrap; }
+td.date { white-space: nowrap; font-size: 12px; color: #3a4a6b; }
+td.appno { font-family: monospace; font-size: 12px; white-space: nowrap; color: #2657a8; }
+td.use-cell { font-size: 12px; color: #3a4a6b; max-width: 280px; }
+td.note-cell { font-size: 11px; color: #e07020; font-weight: 600; white-space: nowrap; }
+
+td.submission { font-size: 11px; font-weight: 600; white-space: nowrap; }
+td.sub-original { color: #1e7e34; }
+td.sub-resub { color: #b85c00; }
+
+.ta-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #eef1fa;
+  color: #2657a8;
+  white-space: nowrap;
+}
+
+.co-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
+
+.badge-bigpharma { background: #16243f; color: #fff; }
+.badge-biotech { background: #2657a8; color: #fff; }
+
+a {
+  color: #2657a8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+a:hover { text-decoration: underline; color: #1a3a6e; }
+
+.footer {
+  margin-top: 20px;
+  font-size: 11.5px;
+  color: #8a94a6;
+  text-align: center;
+  line-height: 1.8;
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <h1>FDA 2025 Novel Drug Approvals Dashboard</h1>
+    <p>Content current as of 2026-07-01 &nbsp;|&nbsp; Source: FDA Novel Drug Approvals 2025 &nbsp;|&nbsp; Total: 46 novel drug approvals</p>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stat-card"><div class="val">46</div><div class="lbl">Total Novel Approvals</div></div>
+    <div class="stat-card"><div class="val">21</div><div class="lbl">Big Pharma</div></div>
+    <div class="stat-card"><div class="val">25</div><div class="lbl">Biotech</div></div>
+    <div class="stat-card"><div class="val">11</div><div class="lbl">Accelerated Approval</div></div>
+    <div class="stat-card"><div class="val">3</div><div class="lbl">Resubmission</div></div>
+    <div class="stat-card"><div class="val">14</div><div class="lbl">Oncology Drugs</div></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Drug Name</th>
+          <th>Active Ingredient</th>
+          <th>Approval Date</th>
+          <th>FDA-Approved Use</th>
+          <th>Therapeutic Area</th>
+          <th>Company</th>
+          <th>Application No.</th>
+          <th>Submission</th>
+          <th>Drugs@FDA</th>
+          <th>FDA Review (TOC)</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <td class="num">1</td>
+      <td class="drug-name">Datroway</td>
+      <td>datopotamab deruxtecan-dlnk</td>
+      <td class="date">2025-01-17</td>
+      <td class="use-cell">Unresectable or metastatic HR-positive, HER2-negative breast cancer with prior endocrine-based therapy and chemotherapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Daiichi Sankyo<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761394</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761394" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761394Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">2</td>
+      <td class="drug-name">Grafapex</td>
+      <td>treosulfan</td>
+      <td class="date">2025-01-21</td>
+      <td class="use-cell">Preparative regimen for allogeneic HSCT in adult and pediatric patients ≥1 year with AML or MDS (with fludarabine)</td>
+      <td><span class="ta-tag">Oncology / Hematology</span></td>
+      <td>medac GmbH<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 214759</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=214759" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/214759Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">3</td>
+      <td class="drug-name">Journavx</td>
+      <td>suzetrigine</td>
+      <td class="date">2025-01-30</td>
+      <td class="use-cell">Moderate-to-severe acute pain in adults</td>
+      <td><span class="ta-tag">Pain Management</span></td>
+      <td>Vertex Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219209</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219209" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219209Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">4</td>
+      <td class="drug-name">Gomekli</td>
+      <td>mirdametinib</td>
+      <td class="date">2025-02-11</td>
+      <td class="use-cell">Adults and pediatric patients ≥2 years with neurofibromatosis type 1 (NF1) with symptomatic plexiform neurofibromas not amenable to complete resection</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>SpringWorks Therapeutics<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219389</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219389" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219389Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">5</td>
+      <td class="drug-name">Romvimza</td>
+      <td>vimseltinib</td>
+      <td class="date">2025-02-14</td>
+      <td class="use-cell">Symptomatic tenosynovial giant cell tumor (TGCT) for which surgical resection will potentially cause worsening functional limitation or severe morbidity</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Deciphera Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219304</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219304" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219304Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">6</td>
+      <td class="drug-name">Blujepa</td>
+      <td>gepotidacin</td>
+      <td class="date">2025-03-25</td>
+      <td class="use-cell">Uncomplicated urinary tract infections (uUTI) in female adult and pediatric patients ≥12 years weighing ≥40 kg</td>
+      <td><span class="ta-tag">Infectious Disease</span></td>
+      <td>GlaxoSmithKline<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 218230</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=218230" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218230Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">7</td>
+      <td class="drug-name">Qfitlia</td>
+      <td>fitusiran</td>
+      <td class="date">2025-03-28</td>
+      <td class="use-cell">Prophylaxis to prevent or reduce bleeding episodes in adults and pediatric patients ≥12 years with hemophilia A or B with or without inhibitors</td>
+      <td><span class="ta-tag">Hematology</span></td>
+      <td>Sanofi/Genzyme<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 219019</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219019" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219019Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">8</td>
+      <td class="drug-name">Vanrafia</td>
+      <td>atrasentan</td>
+      <td class="date">2025-04-02</td>
+      <td class="use-cell">Reduction of proteinuria in adults with primary IgA nephropathy (IgAN) at risk of rapid disease progression</td>
+      <td><span class="ta-tag">Nephrology</span></td>
+      <td>Novartis<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 219208</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219208" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219208Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">9</td>
+      <td class="drug-name">Penpulimab-kcqx</td>
+      <td>penpulimab-kcqx</td>
+      <td class="date">2025-04-23</td>
+      <td class="use-cell">In combination with chemotherapy for first-line treatment of adults with recurrent or metastatic non-keratinizing nasopharyngeal carcinoma; or monotherapy for platinum-resistant/refractory disease</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Akeso / Chia Tai-Tianqing<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">BLA 761258</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761258" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761258Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">10</td>
+      <td class="drug-name">Imaavy</td>
+      <td>nipocalimab-aahu</td>
+      <td class="date">2025-04-29</td>
+      <td class="use-cell">Generalized myasthenia gravis in adults who are anti-AChR antibody positive</td>
+      <td><span class="ta-tag">Neurology / Immunology</span></td>
+      <td>Johnson & Johnson<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761430</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761430" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761430Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">11</td>
+      <td class="drug-name">Avmapki Fakzynja</td>
+      <td>avutometinib + defactinib</td>
+      <td class="date">2025-05-08</td>
+      <td class="use-cell">Adults with KRAS-mutated recurrent low-grade serous ovarian cancer (LGSOC) who have received prior systemic therapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Verastem Oncology<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219616</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219616" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219616Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">12</td>
+      <td class="drug-name">Emrelis</td>
+      <td>telisotuzumab vedotin-tllv</td>
+      <td class="date">2025-05-14</td>
+      <td class="use-cell">Adults with locally advanced or metastatic non-squamous NSCLC with high c-Met protein overexpression who received prior systemic therapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>AbbVie<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761384</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761384" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">13</td>
+      <td class="drug-name">Tryptyr</td>
+      <td>acoltremon</td>
+      <td class="date">2025-05-28</td>
+      <td class="use-cell">Signs and symptoms of dry eye disease (DED) in adults</td>
+      <td><span class="ta-tag">Ophthalmology</span></td>
+      <td>Alcon<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 217370</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=217370" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/217370Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">14</td>
+      <td class="drug-name">Enflonsia</td>
+      <td>clesrovimab-cfor</td>
+      <td class="date">2025-06-09</td>
+      <td class="use-cell">Prevention of RSV lower respiratory tract disease in neonates and infants born during or entering their first RSV season</td>
+      <td><span class="ta-tag">Infectious Disease</span></td>
+      <td>Merck<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761432</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761432" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761432Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">15</td>
+      <td class="drug-name">Ibtrozi</td>
+      <td>taletrectinib</td>
+      <td class="date">2025-06-11</td>
+      <td class="use-cell">Adults with locally advanced or metastatic ROS1-positive NSCLC</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Nuvation Bio<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219713</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219713" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219713Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">16</td>
+      <td class="drug-name">Andembry</td>
+      <td>garadacimab-gxii</td>
+      <td class="date">2025-06-16</td>
+      <td class="use-cell">Prophylaxis to prevent attacks of hereditary angioedema (HAE) in adults and pediatric patients ≥12 years</td>
+      <td><span class="ta-tag">Immunology</span></td>
+      <td>CSL Behring<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761367</td>
+      <td class="submission sub-resub">Resubmission</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761367" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761367Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Resubmission</td>
+    </tr>
+    <tr>
+      <td class="num">17</td>
+      <td class="drug-name">Lynozyfic</td>
+      <td>linvoseltamab-gcpt</td>
+      <td class="date">2025-07-02</td>
+      <td class="use-cell">Adults with relapsed or refractory multiple myeloma who have received ≥4 prior lines of therapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Regeneron<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761400</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761400" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761400Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">18</td>
+      <td class="drug-name">Zegfrovy</td>
+      <td>sunvozertinib</td>
+      <td class="date">2025-07-02</td>
+      <td class="use-cell">Adults with locally advanced or metastatic non-squamous NSCLC with EGFR exon 20 insertion mutations, progressed on/after platinum-based chemotherapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Dizal (Jiangsu) Pharmaceutical<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219839</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219839" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">19</td>
+      <td class="drug-name">Ekterly</td>
+      <td>sebetralstat</td>
+      <td class="date">2025-07-03</td>
+      <td class="use-cell">Acute attacks of hereditary angioedema (HAE) in adults and pediatric patients ≥12 years</td>
+      <td><span class="ta-tag">Immunology</span></td>
+      <td>KalVista Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219301</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219301" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219301Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">20</td>
+      <td class="drug-name">Anzupgo</td>
+      <td>delgocitinib</td>
+      <td class="date">2025-07-23</td>
+      <td class="use-cell">Moderate to severe chronic hand eczema (CHE) in adults with inadequate response to topical corticosteroids</td>
+      <td><span class="ta-tag">Dermatology</span></td>
+      <td>LEO Pharma<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219155</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219155" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219155Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">21</td>
+      <td class="drug-name">Sephience</td>
+      <td>sepiapterin</td>
+      <td class="date">2025-07-28</td>
+      <td class="use-cell">Hyperphenylalaninemia (HPA) in adults and pediatric patients ≥1 month with sepiapterin-responsive phenylketonuria (PKU)</td>
+      <td><span class="ta-tag">Rare Disease / Metabolic</span></td>
+      <td>PTC Therapeutics<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219666</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219666" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219666Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">22</td>
+      <td class="drug-name">Vizz</td>
+      <td>aceclidine</td>
+      <td class="date">2025-07-31</td>
+      <td class="use-cell">Presbyopia in adults</td>
+      <td><span class="ta-tag">Ophthalmology</span></td>
+      <td>LENZ Therapeutics<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 218585</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=218585" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218585Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">23</td>
+      <td class="drug-name">Modeyso</td>
+      <td>dordaviprone</td>
+      <td class="date">2025-08-06</td>
+      <td class="use-cell">Adults and pediatric patients ≥1 year with diffuse midline glioma harboring an H3 K27M mutation with progressive disease following prior therapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Chimerix<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219876</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219876" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219876Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">24</td>
+      <td class="drug-name">Hernexeos</td>
+      <td>zongertinib</td>
+      <td class="date">2025-08-08</td>
+      <td class="use-cell">Adults with unresectable or metastatic non-squamous NSCLC with HER2 TKD activating mutations who have received prior systemic therapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Boehringer Ingelheim<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 219042</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219042" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">25</td>
+      <td class="drug-name">Brinsupri</td>
+      <td>brensocatib</td>
+      <td class="date">2025-08-12</td>
+      <td class="use-cell">Non-cystic fibrosis bronchiectasis (NCFB) in adults and pediatric patients ≥12 years</td>
+      <td><span class="ta-tag">Pulmonology</span></td>
+      <td>Insmed<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 217673</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=217673" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/217673Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">26</td>
+      <td class="drug-name">Dawnzera</td>
+      <td>donidalorsen</td>
+      <td class="date">2025-08-21</td>
+      <td class="use-cell">Prophylaxis to prevent attacks of hereditary angioedema (HAE) in adults and pediatric patients ≥12 years</td>
+      <td><span class="ta-tag">Immunology</span></td>
+      <td>Ionis Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219407</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219407" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219407Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">27</td>
+      <td class="drug-name">Wayrilz</td>
+      <td>rilzabrutinib</td>
+      <td class="date">2025-08-29</td>
+      <td class="use-cell">Adults with persistent or chronic immune thrombocytopenia (ITP) who have had an insufficient response to a previous treatment</td>
+      <td><span class="ta-tag">Hematology</span></td>
+      <td>Sanofi/Genzyme<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 219685</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219685" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219685Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">28</td>
+      <td class="drug-name">Keytruda Qlex</td>
+      <td>pembrolizumab + berahyaluronidase alfa-pmph</td>
+      <td class="date">2025-09-19</td>
+      <td class="use-cell">Adults and pediatric patients ≥12 years: solid tumor indications approved for IV pembrolizumab (subcutaneous formulation)</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Merck<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761467</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761467" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761467Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">29</td>
+      <td class="drug-name">Forzinity</td>
+      <td>elamipretide</td>
+      <td class="date">2025-09-19</td>
+      <td class="use-cell">Adults and pediatric patients with Barth syndrome weighing ≥30 kg to improve muscle strength</td>
+      <td><span class="ta-tag">Rare Disease / Cardiology</span></td>
+      <td>Stealth BioTherapeutics<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 215244</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=215244" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/215244Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">30</td>
+      <td class="drug-name">Inluriyo</td>
+      <td>imlunestrant</td>
+      <td class="date">2025-09-25</td>
+      <td class="use-cell">Adults with ER-positive, HER2-negative, ESR1-mutated advanced or metastatic breast cancer with disease progression following ≥1 line of endocrine therapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Eli Lilly<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 218881</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=218881" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218881Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">31</td>
+      <td class="drug-name">Palsonify</td>
+      <td>paltusotine</td>
+      <td class="date">2025-09-25</td>
+      <td class="use-cell">Adults with acromegaly who had an inadequate response to surgery and/or for whom surgery is not an option</td>
+      <td><span class="ta-tag">Endocrinology</span></td>
+      <td>Crinetics Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219070</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219070" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219070Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">32</td>
+      <td class="drug-name">Rhapsido</td>
+      <td>remibrutinib</td>
+      <td class="date">2025-09-30</td>
+      <td class="use-cell">Adults with chronic spontaneous urticaria (CSU) who remain symptomatic despite H1 antihistamine treatment</td>
+      <td><span class="ta-tag">Dermatology / Immunology</span></td>
+      <td>Novartis<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 218436</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=218436" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218436Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">33</td>
+      <td class="drug-name">Jascayd</td>
+      <td>nerandomilast</td>
+      <td class="date">2025-10-07</td>
+      <td class="use-cell">Adults with idiopathic pulmonary fibrosis (IPF)</td>
+      <td><span class="ta-tag">Pulmonology</span></td>
+      <td>Boehringer Ingelheim<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 218764</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=218764" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218764Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">34</td>
+      <td class="drug-name">Lynkuet</td>
+      <td>elinzanetant</td>
+      <td class="date">2025-10-24</td>
+      <td class="use-cell">Moderate to severe vasomotor symptoms (hot flashes) due to menopause</td>
+      <td><span class="ta-tag">Women's Health</span></td>
+      <td>Bayer<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 219469</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219469" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219469Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">35</td>
+      <td class="drug-name">Kygevvi</td>
+      <td>doxecitine + doxribtimine</td>
+      <td class="date">2025-11-03</td>
+      <td class="use-cell">Adults and pediatric patients with thymidine kinase 2 deficiency (TK2d)</td>
+      <td><span class="ta-tag">Rare Disease / Neurology</span></td>
+      <td>UCB<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 219792</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219792" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219792Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">36</td>
+      <td class="drug-name">Komzifti</td>
+      <td>ziftomenib</td>
+      <td class="date">2025-11-13</td>
+      <td class="use-cell">Adults with relapsed or refractory acute myeloid leukemia (AML) with a susceptible NPM1 mutation</td>
+      <td><span class="ta-tag">Oncology / Hematology</span></td>
+      <td>Kura Oncology<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 220305</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=220305" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">37</td>
+      <td class="drug-name">Redemplo</td>
+      <td>plozasiran</td>
+      <td class="date">2025-11-18</td>
+      <td class="use-cell">Adjunct to diet to reduce triglycerides in adults with familial chylomicronemia syndrome (FCS)</td>
+      <td><span class="ta-tag">Cardiovascular / Metabolic</span></td>
+      <td>Arrowhead Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219947</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219947" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219947Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">38</td>
+      <td class="drug-name">Hyrnuo</td>
+      <td>sevabertinib</td>
+      <td class="date">2025-11-19</td>
+      <td class="use-cell">Adults with locally advanced or metastatic non-squamous NSCLC with HER2 TKD activating mutations who have received prior systemic therapy</td>
+      <td><span class="ta-tag">Oncology</span></td>
+      <td>Bayer<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">NDA 219972</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219972" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">39</td>
+      <td class="drug-name">Voyxact</td>
+      <td>sibeprenlimab-szsi</td>
+      <td class="date">2025-11-25</td>
+      <td class="use-cell">Reduction of proteinuria in adults with primary IgA nephropathy (IgAN) at risk for disease progression</td>
+      <td><span class="ta-tag">Nephrology</span></td>
+      <td>Otsuka Pharmaceutical<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761434</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761434" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761434Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Accelerated Approval</td>
+    </tr>
+    <tr>
+      <td class="num">40</td>
+      <td class="drug-name">Lerochol</td>
+      <td>lerodalcibep-liga</td>
+      <td class="date">2025-12-12</td>
+      <td class="use-cell">Adjunct to diet and exercise to reduce LDL-C in adults with hypercholesterolemia, including heterozygous familial hypercholesterolemia (HeFH)</td>
+      <td><span class="ta-tag">Cardiovascular</span></td>
+      <td>LIB Therapeutics<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">BLA 761427</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761427" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/761427Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">41</td>
+      <td class="drug-name">Nuzolvence</td>
+      <td>zoliflodacin</td>
+      <td class="date">2025-12-12</td>
+      <td class="use-cell">Uncomplicated urogenital gonorrhea in adults and adolescents</td>
+      <td><span class="ta-tag">Infectious Disease</span></td>
+      <td>Innoviva Specialty Therapeutics<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219491</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219491" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219491Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">42</td>
+      <td class="drug-name">Cardamyst</td>
+      <td>etripamil</td>
+      <td class="date">2025-12-12</td>
+      <td class="use-cell">Conversion of acute symptomatic episodes of paroxysmal supraventricular tachycardia (PSVT) to sinus rhythm in adults</td>
+      <td><span class="ta-tag">Cardiovascular</span></td>
+      <td>Milestone Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 218571</td>
+      <td class="submission sub-resub">Resubmission</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=218571" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/218571Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Resubmission</td>
+    </tr>
+    <tr>
+      <td class="num">43</td>
+      <td class="drug-name">Myqorzo</td>
+      <td>aficamten</td>
+      <td class="date">2025-12-19</td>
+      <td class="use-cell">Adults with symptomatic obstructive hypertrophic cardiomyopathy (oHCM) to improve functional capacity and symptoms</td>
+      <td><span class="ta-tag">Cardiovascular</span></td>
+      <td>Cytokinetics<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 219083</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=219083" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219083Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">44</td>
+      <td class="drug-name">Exdensur</td>
+      <td>depemokimab-ulaa</td>
+      <td class="date">2025-12-16</td>
+      <td class="use-cell">Add-on maintenance treatment for severe asthma with eosinophilic phenotype in adults and pediatric patients ≥12 years</td>
+      <td><span class="ta-tag">Pulmonology</span></td>
+      <td>GlaxoSmithKline<br><span class="co-badge badge-bigpharma">Big Pharma</span></td>
+      <td class="appno">BLA 761458</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761458" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/761458Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+    <tr>
+      <td class="num">45</td>
+      <td class="drug-name">Yartemlea</td>
+      <td>narsoplimab-wuug</td>
+      <td class="date">2025-12-23</td>
+      <td class="use-cell">Adults and pediatric patients ≥2 years with hematopoietic stem cell transplant-associated thrombotic microangiopathy (TA-TMA)</td>
+      <td><span class="ta-tag">Hematology / Rare Disease</span></td>
+      <td>Omeros<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">BLA 761152</td>
+      <td class="submission sub-resub">Resubmission</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=761152" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/761152Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell">Resubmission</td>
+    </tr>
+    <tr>
+      <td class="num">46</td>
+      <td class="drug-name">Nereus</td>
+      <td>tradipitant</td>
+      <td class="date">2025-12-30</td>
+      <td class="use-cell">Prevention of vomiting induced by motion in adults</td>
+      <td><span class="ta-tag">Neurology</span></td>
+      <td>Vanda Pharmaceuticals<br><span class="co-badge badge-biotech">Biotech</span></td>
+      <td class="appno">NDA 220152</td>
+      <td class="submission sub-original">Original</td>
+      <td><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=220152" target="_blank">Drugs@FDA</a></td>
+      <td><a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220152Orig1s000TOC.html" target="_blank">TOC</a></td>
+      <td class="note-cell"></td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    Data source: <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2025" target="_blank">FDA Novel Drug Approvals for 2025</a>
+    &nbsp;|&nbsp; TOC links: accessdata.fda.gov &nbsp;|&nbsp; Built: 2026-07-01
+  </div>
+
+</div>
+</body>
+</html>

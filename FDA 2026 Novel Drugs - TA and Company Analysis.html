@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDA 2026 Novel Drugs - TA and Company Analysis</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Pretendard", "Segoe UI", -apple-system, "Apple SD Gothic Neo", Arial, sans-serif;
+  font-size: 13px;
+  background: #f0f2f7;
+  color: #1f2328;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+header {
+  background: linear-gradient(135deg, #1a3a6e 0%, #2657a8 100%);
+  color: #fff;
+  padding: 28px 36px 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(26,58,110,0.18);
+}
+header h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
+header p { font-size: 13px; opacity: 0.82; line-height: 1.6; }
+
+.section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(26,58,110,0.08);
+}
+.section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #16243f;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8ecf3;
+  letter-spacing: -0.02em;
+}
+
+/* Bar chart */
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.bar-label {
+  width: 220px;
+  flex-shrink: 0;
+  font-size: 12.5px;
+  color: #3a4a6b;
+  text-align: right;
+  letter-spacing: -0.01em;
+}
+.bar-track {
+  flex-grow: 1;
+  background: #eef0f5;
+  border-radius: 5px;
+  height: 22px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+.bar-count {
+  width: 28px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 700;
+  color: #16243f;
+  flex-shrink: 0;
+}
+
+/* Pct bar */
+.pct-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 34px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #fff;
+}
+.pct-seg {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+/* Company grid */
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.company-block {
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.company-block.big { background: #f0f3fa; border: 1px solid #c8d4ea; }
+.company-block.bio { background: #f0faf4; border: 1px solid #b8dfc8; }
+.company-block h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: #16243f; }
+.co-list { list-style: none; font-size: 12px; color: #3a4a6b; line-height: 1.9; }
+
+/* Cross-table */
+.cross-table { margin-top: 0; }
+.cross-table table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.cross-table th {
+  background: #2657a8;
+  color: #fff;
+  padding: 9px 14px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+.cross-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #e8ecf3;
+  text-align: center;
+}
+.cross-table td:first-child { text-align: left; color: #16243f; font-weight: 600; }
+.cross-table tr.total-row td { font-weight: 700; background: #f4f7fd; }
+
+/* Insights */
+.insights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.insight-card {
+  background: #f7f9fd;
+  border: 1px solid #dce5f5;
+  border-left: 4px solid #2657a8;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #2a3548;
+}
+.insight-card strong { display: block; font-size: 13px; color: #16243f; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<header>
+  <h1>FDA 2026 Novel Drugs — Therapeutic Area &amp; Company Analysis</h1>
+  <p>Content current as of 2026-08-22 &nbsp;|&nbsp; Total 33 novel approvals (through 2026-08-19, Pasatru) &nbsp;|&nbsp;
+     Source: <a href="FDA Novel Drug Approvals 2026 Dashboard.html" style="color:#a8c4ff">FDA Novel Drug Approvals 2026 Dashboard</a></p>
+</header>
+
+<!-- TA Bar Chart -->
+<div class="section">
+  <h2>📊 Therapeutic Area Breakdown (전체 33건)</h2>
+
+  <div class="bar-row">
+    <div class="bar-label">Oncology / Hematology</div>
+    <div class="bar-track"><div class="bar-fill" style="width:100%;background:#c8303a"></div></div>
+    <div class="bar-count">7</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Infectious Disease</div>
+    <div class="bar-track"><div class="bar-fill" style="width:71%;background:#2657a8"></div></div>
+    <div class="bar-count">5</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Rare Disease</div>
+    <div class="bar-track"><div class="bar-fill" style="width:71%;background:#e07020"></div></div>
+    <div class="bar-count">5</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Endocrinology / Metabolic</div>
+    <div class="bar-track"><div class="bar-fill" style="width:43%;background:#3e8e6e"></div></div>
+    <div class="bar-count">3</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Dermatology</div>
+    <div class="bar-track"><div class="bar-fill" style="width:29%;background:#56b38a"></div></div>
+    <div class="bar-count">2</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Psychiatry / CNS</div>
+    <div class="bar-track"><div class="bar-fill" style="width:29%;background:#9b5ccc"></div></div>
+    <div class="bar-count">2</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Cardiovascular</div>
+    <div class="bar-track"><div class="bar-fill" style="width:29%;background:#1a6e4a"></div></div>
+    <div class="bar-count">2</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Diagnostic / Radiology</div>
+    <div class="bar-track"><div class="bar-fill" style="width:29%;background:#b0a0d0"></div></div>
+    <div class="bar-count">2</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Hepatology</div>
+    <div class="bar-track"><div class="bar-fill" style="width:14%;background:#4a90e2"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Anesthesiology</div>
+    <div class="bar-track"><div class="bar-fill" style="width:14%;background:#88b8ef"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Nephrology / Immunology <span style="color:#e07020;font-weight:700;">NEW</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:14%;background:#d4a017"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Ophthalmology <span style="color:#e07020;font-weight:700;">NEW</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:14%;background:#6ba3c9"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Neurology / Sleep Medicine <span style="color:#e07020;font-weight:700;">NEW</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:14%;background:#7a5ea8"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+</div>
+
+<!-- Oncology Breakdown -->
+<div class="section">
+  <h2>🎗 Oncology / Hematology 세부 분류 (7건)</h2>
+  <div class="bar-row">
+    <div class="bar-label">Breast Cancer (유방암)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:100%;background:#c8303a"></div></div>
+    <div class="bar-count">2</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Ovarian Cancer (난소암)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:50%;background:#c8303a"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Mantle Cell Lymphoma (MCL)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:50%;background:#c8303a"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">BPDCN (형질세포양수지상세포종양)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:50%;background:#c8303a"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">NSCLC, ROS1+ (비소세포폐암)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:50%;background:#c8303a"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Multiple Myeloma (다발골수종)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:50%;background:#c8303a"></div></div>
+    <div class="bar-count">1</div>
+  </div>
+  <p style="font-size:11.5px;color:#6a7a9b;margin-top:12px;">
+    Lifyorli(relacorilant, 난소암) — Veppanu(vepdegestrant, 유방암 ESR1 PROTAC) — Revtorpyk(gedatolisib, 유방암 PI3K/mTOR) — Beqalzi(sonrotoclax, MCL BCL-2 억제제) — Decnupaz(pivekimab sunirine, BPDCN CD123×IL-3R ADC) — Jideytro(zidesamtinib, ROS1+ NSCLC 4세대 TKI) — Zenbexus(iberdomide, 다발골수종 최초 CELMoD)
+  </p>
+</div>
+
+<!-- Company Type -->
+<div class="section">
+  <h2>🏢 Company Type – Big Pharma vs Biotech</h2>
+
+  <div class="pct-bar" style="margin-bottom:20px;">
+    <div class="pct-seg" style="width:54.5%;background:#16243f;">Big Pharma 18 (55%)</div>
+    <div class="pct-seg" style="width:45.5%;background:#2657a8;">Biotech 15 (45%)</div>
+  </div>
+
+  <div class="company-grid">
+    <div class="company-block big">
+      <h3>🏦 Big Pharma (18개)</h3>
+      <ul class="co-list">
+        <li>GSK (3) — Lynavoy, Utebzi, Jideytro</li>
+        <li>Merck (2) — Idvynso, Lipfendra</li>
+        <li>Novo Nordisk (1) — Awiqli</li>
+        <li>Eli Lilly (1) — Foundayo</li>
+        <li>Pfizer / Arvinas (1) — Veppanu</li>
+        <li>AstraZeneca (1) — Baxfendy</li>
+        <li>Gilead Sciences (1) — Hepcludex</li>
+        <li>AbbVie (1) — Decnupaz</li>
+        <li>Shionogi (1) — Xocova</li>
+        <li>Bayer (1) — Ambelvist</li>
+        <li>Janssen Biotech / J&amp;J (1) — Icotyde</li>
+        <li>Otsuka (1) — Simtriyo</li>
+        <li>Takeda (1) — Orzeyful</li>
+        <li>Bristol Myers Squibb (1) — Zenbexus</li>
+        <li>Regeneron (1) — Pasatru</li>
+      </ul>
+    </div>
+    <div class="company-block bio">
+      <h3>🔬 Biotech (15개)</h3>
+      <ul class="co-list">
+        <li>Sentynl Therapeutics (1) — Zycubo</li>
+        <li>Acrotech Biopharma (1) — Adquey</li>
+        <li>Vanda Pharmaceuticals (1) — Bysanti</li>
+        <li>Immedica Pharma AB (1) — Loargys</li>
+        <li>Ascendis Pharma (1) — Yuviwel</li>
+        <li>Denali Therapeutics (1) — Avlayah</li>
+        <li>Corcept Therapeutics (1) — Lifyorli</li>
+        <li>BeOne Medicines (1) — Beqalzi</li>
+        <li>Wockhardt (1) — Zaynich</li>
+        <li>Haisco-USA Pharmaceuticals (1) — Cypsedo</li>
+        <li>Viridian Therapeutics (1) — Lumvoa</li>
+        <li>Vera Therapeutics (1) — Trutakna</li>
+        <li>Celcuity (1) — Revtorpyk</li>
+        <li>Outlook Therapeutics (1) — Lytenava</li>
+        <li>Lantheus / Cerveau Technologies (1) — Tauklarify</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Cross-table -->
+<div class="section cross-table">
+  <h2>📋 TA × Company Type 교차 분석</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Therapeutic Area</th>
+        <th>Big Pharma</th>
+        <th>Biotech</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Oncology / Hematology</td><td>4</td><td>3</td><td>7</td></tr>
+      <tr><td>Infectious Disease</td><td>4</td><td>1</td><td>5</td></tr>
+      <tr><td>Rare Disease</td><td>1</td><td>4</td><td>5</td></tr>
+      <tr><td>Endocrinology / Metabolic</td><td>2</td><td>1</td><td>3</td></tr>
+      <tr><td>Dermatology</td><td>1</td><td>1</td><td>2</td></tr>
+      <tr><td>Psychiatry / CNS</td><td>1</td><td>1</td><td>2</td></tr>
+      <tr><td>Cardiovascular</td><td>2</td><td>0</td><td>2</td></tr>
+      <tr><td>Diagnostic / Radiology</td><td>1</td><td>1</td><td>2</td></tr>
+      <tr><td>Hepatology</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>Anesthesiology</td><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>Nephrology / Immunology</td><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>Ophthalmology</td><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>Neurology / Sleep Medicine</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr class="total-row"><td>합계</td><td>18</td><td>15</td><td>33</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Insights -->
+<div class="section">
+  <h2>💡 Key Insights – 2026 FDA Novel Drugs (연중 누계, ~8월)</h2>
+  <div class="insights-grid">
+
+    <div class="insight-card">
+      <strong>① 종양학이 최다 영역으로 등극 (7/33, 21%) — 상반기 감염병 1위에서 역전</strong>
+      7월 이후 Revtorpyk(PI3K/mTOR 억제제), Jideytro(4세대 ROS1 TKI), Zenbexus(최초 CELMoD) 3건이 추가되며 Oncology/Hematology가 감염병(5건)을 제치고 1위로 등극. 한 분기 만에 PROTAC(Veppanu)·CELMoD(Zenbexus)·듀얼 PI3K/mTOR(Revtorpyk) 등 서로 다른 4개 신규 기전이 승인되어, 종양학이 모달리티 혁신의 최전선임을 재확인.
+    </div>
+
+    <div class="insight-card">
+      <strong>② 가속승인(Accelerated Approval) 부활 — 0건에서 2건으로</strong>
+      상반기(23건 기준) 가속승인 0건이었던 흐름이 Trutakna(단백뇨 감소 기반, 최초 이중 BAFF/APRIL 억제제)와 Zenbexus(MRD를 조기 유효성 지표로 사용한 다발골수종 최초 사례)로 반전. 특히 Zenbexus는 MRD 기반 가속승인의 업계 최초 사례로, 향후 혈액암 신약 개발의 임상시험 설계 방식에 영향을 줄 수 있는 규제 이정표.
+    </div>
+
+    <div class="insight-card">
+      <strong>③ 3개 신규 치료영역 첫 등장 — 모두 First-in-Class</strong>
+      Nephrology(Trutakna, 최초 이중 BAFF/APRIL 억제제) · Ophthalmology(Lytenava, 최초 안과용 베바시주맙 제형) · Neurology/Sleep(Orzeyful, 최초 오렉신2 수용체 작용제) 3개 영역이 2026년 처음으로 목록에 등장했으며 셋 다 새로운 치료 카테고리를 여는 first-in-class 승인. 희귀질환처럼 이 3건 모두 바이오텍/전문기업(Vera·Outlook) 또는 빅파마의 신규 진출(Takeda) 사례.
+    </div>
+
+    <div class="insight-card">
+      <strong>④ Big Pharma 55% vs Biotech 45% — 하반기 빅파마 쪽으로 소폭 이동</strong>
+      상반기 52:48에서 하반기 신규 10건 중 6건이 빅파마(Merck·GSK·Otsuka·Takeda·BMS·Regeneron)로 쏠리며 55:45로 이동. 빅파마는 감염병(4/5)·종양학(4/7)·심혈관(2/2)·신경과(1/1)에서 강세, 바이오텍은 희귀질환(4/5)·안과(1/1)·신장내과(1/1)·마취(1/1)에서 독점 — "상업적 대형 시장은 빅파마, 틈새 전문 영역은 바이오텍"이라는 2022~2025년 패턴이 2026년에도 유지.
+    </div>
+
+    <div class="insight-card">
+      <strong>⑤ 진단/영상(Diagnostic·Radiology) 조용한 확장 — 1건에서 2건으로</strong>
+      Ambelvist(MRI 조영증강제)에 이어 Tauklarify(Alzheimer's tau PET 트레이서, Lantheus/Cerveau)가 추가되며 진단영상 영역이 2건으로 확대. 두 건 모두 신경퇴행성·혈관질환 임상시험의 동반진단(companion imaging) 성격이 강해, 신약 자체뿐 아니라 임상시험 인프라용 영상 바이오마커 승인이 늘어나는 추세를 시사.
+    </div>
+
+    <div class="insight-card">
+      <strong>⑥ 데이터 완결성의 구조적 지연 — 최근 9건 중 8건 리뷰 미게시</strong>
+      2026-08-22 기준 7월 중순 이후 승인된 9건(Trutakna~Zenbexus) 중 8건이 아직 FDA Review(TOC) 패키지를 게시하지 않았고(Revtorpyk만 예외), Lipfendra는 Label조차 미게시, Pasatru(8/19 승인)는 Drugs@FDA에 신청번호 자체가 아직 색인되지 않음. Drugs@FDA의 통상 ~30일 문서화 지연을 감안하면 정상 범위이나, 최신 리스트일수록 "리스트에는 있지만 상세 리뷰는 비어있는" 구간이 항상 존재한다는 구조적 한계를 보여줌.
+    </div>
+
+  </div>
+</div>
+
+</div>
+</body>
+</html>
