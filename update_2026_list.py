@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-2026 Novel Drug Approvals 리스트를 2026-08-22 기준으로 업데이트.
+2026 Novel Drug Approvals 리스트 업데이트 (최종: 2026-10-04, FDA content current as of 09/28/2026, 45건).
+- 2026-10-04: 신규 12건(Rasonque~Emcitate) 추가, Pasatru 신청번호(BLA 761508) 확인, 24~33번 리뷰(TOC) 게시분 반영
+[이전 2026-08-22 갱신 내역]
 - 기존 23건(Zycubo~Lumvoa) 그대로 유지, 단 Cypsedo/Ambelvist/Lumvoa의 신청번호 새로 확인되어 보정
 - 신규 10건(Trutakna~Pasatru) 추가 (FDA 공식 Novel Drug Approvals for 2026 페이지, content current as of 08/19/2026 기준)
 - 산출물: FDA_2026_Novel_Drugs_Dashboard.xlsx, FDA Novel Drug Approvals 2026 Dashboard.html
@@ -97,7 +99,7 @@ ROWS = [
  "To treat hypertension in combination with other antihypertensive drugs",
  "Cardiovascular", "AstraZeneca AB",
  "NDA 219878", "Original (Orig1)", "219878Orig1s000",
- "Review PDFs saved locally (ChemR, ClinPharmR, MedR, NameR, OtherR, PharmR, RiskR, AdminCorres, OEList) in C:\\0_MBA\\Healthcare\\Baxfendy"),
+ ""),
 
 (16, "Hepcludex", "bulevirtide-gmod", "2026-05-22",
  "To treat chronic hepatitis delta virus infection in adults without cirrhosis or with compensated cirrhosis",
@@ -151,8 +153,8 @@ ROWS = [
 (24, "Trutakna", "atacicept-vymj", "2026-07-07",
  "To reduce proteinuria in adults with primary immunoglobulin A nephropathy at risk for disease progression",
  "Nephrology / Immunology", "Vera Therapeutics",
- "BLA 761486", "Original (Orig1)", None,
- "Accelerated Approval (first dual BAFF/APRIL inhibitor for IgA nephropathy). As of 2026-08-22 (46 days post-approval) only the Label and Approval Letter are posted on Drugs@FDA — no Review (TOC) package yet, longer than the typical ~30-day posting lag."),
+ "BLA 761486", "Original (Orig1)", "761486Orig1s000",
+ "Accelerated Approval (first dual BAFF/APRIL inhibitor for IgA nephropathy). Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (25, "Revtorpyk", "gedatolisib", "2026-07-14",
  "In combination with fulvestran, to treat hormone receptor-positive, human epidermal growth factor receptor 2-negative, locally advanced or metastatic breast cancer without a PIK3CA mutation detected following progression on or after treatment with at least one line of endocrine therapy in the metastatic setting",
@@ -163,62 +165,135 @@ ROWS = [
 (26, "Lipfendra", "enlicitide decanoate", "2026-07-15",
  "To reduce low-density lipoprotein cholesterol",
  "Cardiovascular", "Merck",
- "NDA 220848", "Original (Orig1)", None,
- "First oral PCSK9 inhibitor approved. Type 1 NME, Priority Review. As of 2026-08-22, only the Approval Letter is posted on Drugs@FDA — Label and Review package not yet available. Listed as \"MSD\" (Merck's ex-US corporate name) on Drugs@FDA."),
+ "NDA 220848", "Original (Orig1)", "220848Orig1s000",
+ "First oral PCSK9 inhibitor approved. Type 1 NME, Priority Review. Listed as \"MSD\" (Merck's ex-US corporate name) on Drugs@FDA. Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (27, "Jideytro", "zidesamtinib", "2026-07-22",
  "To treat adults with locally advanced or metastatic ROS1-positive non-small cell lung cancer after receiving a ROS1 kinase inhibitor",
  "Oncology", "GSK (Nuvalent)",
- "NDA 220185", "Original (Orig1)", None,
- "Type 1 NME, Standard Review, Orphan Drug. Applicant of record on Drugs@FDA is Nuvalent (acquired by GSK; GSK led the public approval announcement). Like Idvynso, this application's label filename omits the 'Orig1' segment (220185s000lbl.pdf). No Review package posted yet as of 2026-08-22."),
+ "NDA 220185", "Original (Orig1)", "220185Orig1s000",
+ "Type 1 NME, Standard Review, Orphan Drug. Applicant of record on Drugs@FDA is Nuvalent (acquired by GSK; GSK led the public approval announcement). Like Idvynso, this application's label filename omits the 'Orig1' segment (220185s000lbl.pdf). Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (28, "Lytenava", "bevacizumab-vikg", "2026-07-24",
  "To treat patients with neovascular (wet) age-related macular degeneration",
  "Ophthalmology", "Outlook Therapeutics",
- "BLA 761320", "Original (Orig1)", None,
- "First FDA-approved ophthalmic formulation of bevacizumab. Despite press coverage describing this as a 'resubmission,' Drugs@FDA shows this BLA number (761320) as ORIG-1 — a standalone application, not a later review cycle of an earlier CRL'd BLA. No Review package posted yet as of 2026-08-22."),
+ "BLA 761320", "Original (Orig1)", "761320Orig1s000",
+ "First FDA-approved ophthalmic formulation of bevacizumab. Despite press coverage describing this as a 'resubmission,' Drugs@FDA shows this BLA number (761320) as ORIG-1 — a standalone application, not a later review cycle of an earlier CRL'd BLA. Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (29, "Simtriyo", "centanafadine", "2026-07-24",
  "To treat attention-deficit hyperactivity disorder",
  "Psychiatry / CNS", "Otsuka",
- "NDA 218145", "Original (Orig1)", None,
- "First approved norepinephrine-dopamine-serotonin reuptake inhibitor (NDSRI) for ADHD. Type 1 NME, Priority Review. No Review package posted yet as of 2026-08-22."),
+ "NDA 218145", "Original (Orig1)", "218145Orig1s000",
+ "First approved norepinephrine-dopamine-serotonin reuptake inhibitor (NDSRI) for ADHD. Type 1 NME, Priority Review. Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (30, "Orzeyful", "oveporexton", "2026-08-05",
  "To treat narcolepsy type 1",
  "Neurology / Sleep Medicine", "Takeda",
- "NDA 220860", "Original (Orig1)", None,
- "First orexin receptor 2 (OX2R) agonist approved; internal code TAK-861. Type 1 NME, Priority Review + Orphan Drug. No Review package posted yet as of 2026-08-22 (17 days post-approval — expected)."),
+ "NDA 220860", "Original (Orig1)", "220860Orig1s000",
+ "First orexin receptor 2 (OX2R) agonist approved; internal code TAK-861. Type 1 NME, Priority Review + Orphan Drug. Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (31, "Tauklarify", "florquinitau F 18", "2026-08-13",
  "To be used for positron emission tomography of the brain in adults with cognitive impairment who are being evaluated for Alzheimer disease to identify patients with tau neurofibrillary tangle pathology",
  "Diagnostic / Radiology", "Lantheus (Cerveau Technologies)",
- "NDA 220496", "Original (Orig1)", None,
- "F18-labeled tau PET imaging agent (internal code MK-6240). Type 1 NME, Standard Review. Applicant on Drugs@FDA is Cerveau Technologies Inc, a Lantheus company. No Review package posted yet as of 2026-08-22 (9 days post-approval — expected)."),
+ "NDA 220496", "Original (Orig1)", "220496Orig1s000",
+ "F18-labeled tau PET imaging agent (internal code MK-6240). Type 1 NME, Standard Review. Applicant on Drugs@FDA is Cerveau Technologies Inc, a Lantheus company. Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (32, "Zenbexus", "iberdomide", "2026-08-13",
  "To be used in combination with daratumumab and hyaluronidase-fihj and dexamethasone for adults with multiple myeloma who have received at least one prior line of therapy, including a proteasome inhibitor and an immunomodulatory agent",
  "Oncology / Hematology", "Bristol Myers Squibb",
- "NDA 221075", "Original (Orig1)", None,
- "Accelerated Approval — first FDA-approved CELMoD (cereblon-modulating protein degrader), and the first accelerated approval in myeloma based on minimal residual disease (MRD) as an early endpoint. Type 1 NME, Priority Review + Orphan Drug. No Review package posted yet as of 2026-08-22 (9 days post-approval — expected)."),
+ "NDA 221075", "Original (Orig1)", "221075Orig1s000",
+ "Accelerated Approval — first FDA-approved CELMoD (cereblon-modulating protein degrader), and the first accelerated approval in myeloma based on minimal residual disease (MRD) as an early endpoint. Type 1 NME, Priority Review + Orphan Drug. Review (TOC) package confirmed posted as of 2026-10-04."),
 
 (33, "Pasatru", "garetosmab-grts", "2026-08-19",
  "To reduce new heterotopic ossification and clinician-assessed disease flare-ups in adults with fibrodysplasia ossificans progressiva",
  "Rare Disease / Musculoskeletal", "Regeneron",
- None, "Unknown", None,
- "Application Number not yet indexed on Drugs@FDA as of 2026-08-22 (only 3 days post-approval) — searched by both brand name \"Pasatru\" and active ingredient \"garetosmab\", no match found under either. Not even the Label/Approval Letter are posted yet. First and only approved treatment for FOP (fibrodysplasia ossificans progressiva); first-in-class Activin A inhibitor."),
+ "BLA 761508", "Original (Orig1)", "761508Orig1s000",
+ "UPDATED 2026-10-04: Application number now indexed on Drugs@FDA — BLA 761508, applicant Regeneron Pharmaceuticals, Orig-1, Orphan; Label, Letter and Review (TOC) all posted. First-in-class Activin A inhibitor for FOP (fibrodysplasia ossificans progressiva) — the second FOP therapy after Sohonos (palovarotene, 2023)."),
+
+# ---- New entries added 2026-10-04 (FDA list content current as of 09/28/2026) ----
+
+(34, "Rasonque", "daraxonrasib", "2026-08-26",
+ "To treat metastatic pancreatic adenocarcinoma in adults who have received at least one prior systemic therapy or who are not candidates for multiagent systemic therapy",
+ "Oncology", "Revolution Medicines",
+ "NDA 220910", "Original (Orig1)", None,
+ "First approved RAS(ON) multi-selective inhibitor; randomized Phase 3 showed median OS 13.2 vs 6.7 months vs standard of care. Type 1 NME, Priority Review. Label and Approval Letter posted; Review package not yet posted as of 2026-10-04."),
+
+(35, "Lisraya", "brepocitinib", "2026-08-27",
+ "To treat dermatomyositis in adults",
+ "Rheumatology / Immunology", "Priovant Therapeutics (Roivant)",
+ "NDA 220106", "Original (Orig1)", None,
+ "TYK2/JAK1 inhibitor (listed on Drugs@FDA as brepocitinib tosylate). Type 1 NME, Priority Review. Review package not yet posted as of 2026-10-04."),
+
+(36, "Mimrylo", "rusfertide", "2026-08-28",
+ "To treat erythrocytosis in adults with polycythemia vera",
+ "Oncology / Hematology", "Takeda (Protagonist Therapeutics)",
+ "NDA 220605", "Original (Orig1)", "220605Orig1s000",
+ "First-in-class hepcidin mimetic peptide (listed as rusfertide acetate). Applicant of record on Drugs@FDA is Takeda; discovered by Protagonist Therapeutics. Type 1 NME, Priority Review."),
+
+(37, "Zanvastro", "zilganersen", "2026-09-03",
+ "To treat Alexander disease in pediatric and adult patients",
+ "Rare Disease / Neurology", "Ionis Pharmaceuticals",
+ "NDA 220210", "Original (Orig1)", "220210Orig1s000",
+ "Antisense oligonucleotide targeting GFAP; first approved treatment for Alexander disease. Type 1 NME, Priority Review."),
+
+(38, "Etcamah", "camizestrant", "2026-09-04",
+ "To treat hormone receptor-positive, HER2-negative, locally advanced or metastatic breast cancer upon detection of ESR1 mutation during aromatase inhibitor and CDK4/6 inhibitor therapy",
+ "Oncology", "AstraZeneca",
+ "NDA 220359", "Original (Orig1)", None,
+ "Oral SERD; indication tied to switching therapy when an ESR1 mutation emerges during first-line AI + CDK4/6 inhibitor treatment. Type 1 NME, Standard Review. Review package not yet posted as of 2026-10-04."),
+
+(39, "Isembyld", "apitegromab-mstn", "2026-09-11",
+ "To treat spinal muscular atrophy in adults and pediatric patients 2 years of age and older who are currently receiving an SMN2-targeted treatment",
+ "Rare Disease / Neurology", "Scholar Rock",
+ "BLA 761463", "Original (Orig1)", None,
+ "First-in-class muscle-targeted anti-myostatin antibody, used as add-on to SMN2-targeted therapy. Orphan. Review package not yet posted as of 2026-10-04."),
+
+(40, "Pixclara", "floretyrosine F 18", "2026-09-11",
+ "To use with positron emission tomography to differentiate recurrent or progressive glioma from treatment-related change in conjunction with other diagnostic evaluations",
+ "Diagnostic / Radiology", "Telix Pharmaceuticals",
+ "NDA 218592", "Original (Orig1)", None,
+ "Amino-acid PET imaging agent (F-18 FET). Type 1 NME, Priority Review. Review package not yet posted as of 2026-10-04."),
+
+(41, "Onswik", "insulin efsitora alfa-gobe", "2026-09-23",
+ "To improve glycemic control in adults with type 2 diabetes mellitus, as an adjunct to diet and exercise",
+ "Endocrinology / Metabolic", "Eli Lilly",
+ "BLA 761408", "Original (Orig1)", None,
+ "Once-weekly basal insulin. As of 2026-10-04 only the Approval Letter is posted on Drugs@FDA (Label shown as 'not available')."),
+
+(42, "Lyrfigtu", "lirafugratinib", "2026-09-23",
+ "To treat adults with previously treated unresectable, locally advanced or metastatic cholangiocarcinoma harboring a fibroblast growth factor receptor 2 gene fusion or other rearrangement",
+ "Oncology", "Elevar Therapeutics",
+ "NDA 220425", "Original (Orig1)", None,
+ "Highly selective FGFR2 inhibitor (listed as lirafugratinib hydrochloride); based on single-arm Phase 2 REFOCUS (ORR 46%). Type 1 NME, Priority Review. Review package not yet posted as of 2026-10-04."),
+
+(43, "Juvmo", "tavapadon", "2026-09-25",
+ "To treat Parkinson's disease in adults",
+ "Neurology", "AbbVie",
+ "NDA 220415", "Original (Orig1)", None,
+ "D1/D5 dopamine receptor partial agonist. Type 1 NME, Standard Review. As of 2026-10-04 only the Approval Letter is posted."),
+
+(44, "Atebrioz", "zilurgisertib", "2026-09-25",
+ "To reduce the volume of total new heterotopic ossification in adults and pediatric patients 12 years and older with fibrodysplasia ossificans progressiva",
+ "Rare Disease / Musculoskeletal", "Incyte (Mirum Pharmaceuticals)",
+ "NDA 221198", "Original (Orig1)", None,
+ "Oral ALK2 inhibitor; the third FOP therapy (after Sohonos 2023 and Pasatru 2026-08-19) and the first for patients as young as 12. Applicant of record on Drugs@FDA is Incyte; commercialized with Mirum. Type 1 NME, Priority Review. As of 2026-10-04 only the Approval Letter is posted."),
+
+(45, "Emcitate", "tiratricol", "2026-09-28",
+ "To treat peripheral thyrotoxicosis in patients with MCT8 deficiency",
+ "Rare Disease / Metabolic", "Egetis Therapeutics (Rare Thyroid Therapeutics)",
+ "NDA 220963", "Original (Orig1)", None,
+ "Thyroid hormone analog (Triac) for MCT8 deficiency (Allan-Herndon-Dudley syndrome). Applicant on Drugs@FDA is Rare Thyroid Therapeutics International AB (an Egetis company). Label filename omits 'Orig1' (220963s000lbl.pdf). Type 1 NME, Priority Review."),
 ]
 
 NOTES = [
-    "Content current as of: FDA's Novel Drug Approvals for 2026 page states \"Content current as of: 08/19/2026\". The list's last entry (Pasatru) is approved 2026-08-19, and no entries beyond that date were present when checked on 2026-08-22.",
-    "Application numbers were resolved via Drugs@FDA (browse-by-letter and overview.process&varApplNo=) and cross-checked against web search / press releases. Rows 20 (Cypsedo), 21 (Ambelvist), and 23 (Lumvoa) — previously unconfirmed — were newly resolved in this 2026-08-22 update.",
+    "Content current as of: FDA's Novel Drug Approvals for 2026 page states \"Content current as of: 09/28/2026\". The list's last entry (Emcitate) is approved 2026-09-28; checked on 2026-10-04 (45 approvals).",
+    "Application numbers were resolved via Drugs@FDA (browse-by-letter and overview.process&varApplNo=) and cross-checked against web search / press releases. Rows 20 (Cypsedo), 21 (Ambelvist), and 23 (Lumvoa) were resolved in the 2026-08-22 update; row 33 (Pasatru, BLA 761508) was resolved in the 2026-10-04 update.",
     "Therapeutic Area is inferred from the FDA-approved use on approval date — not an official FDA classification field.",
-    "Submission column: \"Original (Orig1)\" means this was the application's first review cycle that led to approval. \"Resubmission (Orig2)\" means an earlier original submission was not approved and the approved application is a later review cycle. Awiqli is the only confirmed Orig2 in this list. Pasatru is marked \"Unknown\" because the application number itself is unconfirmed.",
-    "BLA review documents are filed under the accessdata.fda.gov /nda/ path, not /bla/ — applies to Loargys, Avlayah, Awiqli, Hepcludex, Decnupaz, Trutakna, Lytenava.",
+    "Submission column: \"Original (Orig1)\" means this was the application's first review cycle that led to approval. \"Resubmission (Orig2)\" means an earlier original submission was not approved and the approved application is a later review cycle. Awiqli is the only confirmed Orig2 in this list.",
+    "BLA review documents are filed under the accessdata.fda.gov /nda/ path, not /bla/ — applies to Loargys, Avlayah, Awiqli, Hepcludex, Decnupaz, Trutakna, Lytenava, Pasatru, Isembyld, Onswik.",
     "TOC filename exceptions: Idvynso (216964s000TOC.html) and Hepcludex (761468s000TOC.html) omit the \"Orig1\" segment used by most other 2026 applications.",
-    "Drugs@FDA column logic: when the Application Number is confirmed, Drugs@FDA links via event=overview.process&varApplNo={number}. Only when unconfirmed (Pasatru) does it fall back to the blank search page with the drug name shown as a typing reminder.",
-    "Review (TOC) lag: FDA review documents (Multi-Discipline/Clinical/Statistical Review etc.) typically post ~30 days after approval, after the Label and Approval Letter (which post within days). As of 2026-08-22, eight recently-approved drugs (Trutakna, Lipfendra, Jideytro, Lytenava, Simtriyo, Orzeyful, Tauklarify, Zenbexus) do not yet have a Review package posted — this is expected, not a search failure. Revtorpyk (approved 7/14) does already have its Review package posted.",
-    "Baxfendy (NDA 219878) review documents are already downloaded as PDFs in C:\\0_MBA\\Healthcare\\Baxfendy.",
+    "Drugs@FDA column logic: when the Application Number is confirmed, Drugs@FDA links via event=overview.process&varApplNo={number}. As of 2026-10-04 all 45 application numbers are confirmed.",
+    "Review (TOC) lag: FDA review documents (Multi-Discipline/Clinical/Statistical Review etc.) typically post ~30 days after approval, after the Label and Approval Letter (which post within days). As of 2026-10-04 all approvals through 2026-08-19 have a Review package posted; of the 12 approvals since 2026-08-26, only Mimrylo and Zanvastro have one so far — this is expected, not a search failure.",
 ]
 
 
@@ -284,7 +359,7 @@ def build_html():
             toc_cell = f'<td><a href="{TOC.format(toc_suffix)}">FDA Review (TOC)</a></td>'
         else:
             toc_cell = '<td><span class="no-link">아직 게시되지 않음 (리뷰 문서 미게시)</span></td>'
-        row_class = ' class="baxfendy"' if drug == "Baxfendy" else ""
+        row_class = ""
         rows_html.append(
             f'<tr{row_class}>\n'
             f'<td>{no}</td><td>{esc(drug)}</td><td>{esc(ing)}</td><td>{date}</td><td>{esc(use)}</td>\n'
@@ -331,7 +406,7 @@ def build_html():
 </head>
 <body>
 <h1>FDA Novel Drug Approvals 2026 Dashboard</h1>
-<div class="meta">Source: <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026">FDA Novel Drug Approvals for 2026</a> &middot; Updated 2026-08-22 &middot; List current through 2026-08-19 (Pasatru), per FDA's "Content current as of: 08/19/2026"</div>
+<div class="meta">Source: <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026">FDA Novel Drug Approvals for 2026</a> &middot; Updated 2026-10-04 &middot; List current through 2026-09-28 (Emcitate), per FDA's "Content current as of: 09/28/2026"</div>
 <table>
 <thead>
 <tr>

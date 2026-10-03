@@ -19,7 +19,7 @@ FDA "Novel Drug Approvals for {year}" 목록을 연도별(2021~2026)로 수집�
 | 2023 | 55 | build_2023_dashboard.py / build_2023_analysis.py | |
 | 2024 | 54 | build_2024_dashboard.py / build_2024_analysis.py | |
 | 2025 | 46 | build_2025_dashboard.py / build_2025_analysis.py | |
-| **2026** | **33** | **update_2026_list.py (신규)** | 2026-08-22 기준, FDA 목록 "Content current as of: 08/19/2026" |
+| **2026** | **45** | **update_2026_list.py** | 2026-10-04 기준, FDA 목록 "Content current as of: 09/28/2026" |
 
 폴더에 남아있는 `! 할일_ 22, 21년 확인 후 26년 다시.txt`는 내용이 비어 있는 사용자 메모(2021/2022 재검증 후 2026 재작업 예정이었던 것으로 추정) — 아직 미착수.
 
@@ -29,7 +29,6 @@ FDA "Novel Drug Approvals for {year}" 목록을 연도별(2021~2026)로 수집�
 - FDA "Novel Drug Approvals for 2026" 페이지 기준 23건(Zycubo~Lumvoa, 2026-06-26까지) 수집
 - 각 약물의 Drugs@FDA 신청번호를 web search로 조사, 신뢰도 낮은 결과는 사용자 직접확인으로 보정 (Veppanu, Decnupaz, Hepcludex, Xocova, Utebzi 등)
 - Cypsedo/Ambelvist/Lumvoa 3건은 신청번호 미확인 상태로 남김
-- Baxfendy(NDA 219878) 리뷰 PDF는 `C:\0_MBA\Healthcare\Baxfendy`에 로컬 저장
 
 ### 세션 B (2026-08-22) — 2026년 리스트 33건으로 갱신 + 신규 빌드 스크립트 작성
 1. **`fda-novel-drug-reviews` 스킬 로드** 후 Drugs@FDA 조회 방법론 확인
@@ -45,7 +44,14 @@ FDA "Novel Drug Approvals for {year}" 목록을 연도별(2021~2026)로 수집�
    - Big Pharma : Biotech = 12:11(52:48) → 18:15(55:45)로 이동
 7. 브라우저 프리뷰로 두 HTML 모두 검증 (행 개수, 신청번호 링크, 콘솔 에러 없음 확인). `C:\0_MBA\Healthcare\.claude\launch.json`에 "FDA New Drug Approval Dashboard" 프리뷰 서버(포트 8770) 설정 추가
 
+### 세션 C (2026-10-04) — 45건으로 갱신
+- 신규 12건(No.34 Rasonque ~ No.45 Emcitate, 8/26~9/28) 추가, 모두 Drugs@FDA browseByLetter로 신청번호 확인
+- Pasatru = BLA 761508 확인. 24~33번 리뷰(TOC) 전부 게시 확인 → 링크 반영. 신규 중 리뷰 게시는 Mimrylo·Zanvastro뿐
+- Analysis HTML 45건 기준 재작성: Oncology 11, Rare 9, Biotech 23 : Big Pharma 22 역전, Rheumatology 신규 TA
+- GitHub Pages(https://sjheo125.github.io/fda-novel-drug-dashboard/)용 index.html을 폴더에 생성(2026 = 45, as of 2026-09-28) — 업로드는 사용자가 직접
+- 신규 12건의 가속승인 여부는 미확인(승인서한 PDF가 스크립트로 열리지 않음)
+
 ## 다음 세션 시 참고
 - 2026년 갱신은 `update_2026_list.py`의 `ROWS` 리스트에 신규 항목을 추가하고 재실행하면 됨 (`python update_2026_list.py`) — xlsx와 Dashboard.html이 함께 갱신됨. `TA and Company Analysis.html`은 수작업 서술형이라 별도로 숫자·insight를 다시 계산해서 반영해야 함(자동화 안 되어 있음)
-- Pasatru(BLA 미확인)는 다음 갱신 때 Drugs@FDA에서 다시 확인해볼 것
-- 리뷰(TOC) 패키지가 아직 없는 8건(Trutakna~Zenbexus 중 Revtorpyk 제외)도 다음 갱신 때 게시 여부 재확인 필요 (통상 승인 후 ~30일 지연)
+- 리뷰(TOC) 미게시 10건(34~45번 중 Mimrylo·Zanvastro 제외) 다음 갱신 때 재확인, 가속승인 여부도 함께 확인
+- 갱신 후 index.html의 2026 건수/기준일도 수정해 GitHub에 함께 업로드
