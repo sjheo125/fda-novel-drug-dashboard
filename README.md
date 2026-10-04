@@ -42,7 +42,7 @@ FDA "Novel Drug Approvals for {year}" 목록을 연도별(2021~2026)로 수집�
    - 신규 치료영역 3개 첫 등장: Nephrology(Trutakna), Ophthalmology(Lytenava), Neurology/Sleep(Orzeyful) — 모두 first-in-class
    - 가속승인 0건 → 2건으로 반전 (Trutakna, Zenbexus — Zenbexus는 MRD 기반 혈액암 가속승인 업계 최초 사례)
    - Big Pharma : Biotech = 12:11(52:48) → 18:15(55:45)로 이동
-7. 브라우저 프리뷰로 두 HTML 모두 검증 (행 개수, 신청번호 링크, 콘솔 에러 없음 확인). `C:\0_MBA\Healthcare\.claude\launch.json`에 "FDA New Drug Approval Dashboard" 프리뷰 서버(포트 8770) 설정 추가
+7. 브라우저 프리뷰로 두 HTML 모두 검증 (행 개수, 신청번호 링크, 콘솔 에러 없음 확인). `.claude/launch.json`에 "FDA New Drug Approval Dashboard" 프리뷰 서버(포트 8770) 설정 추가
 
 ### 세션 C (2026-10-04) — 45건으로 갱신
 - 신규 12건(No.34 Rasonque ~ No.45 Emcitate, 8/26~9/28) 추가, 모두 Drugs@FDA browseByLetter로 신청번호 확인

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 """Build FDA 2021 Novel Drug Approvals Dashboard HTML"""
 
 DAF_BASE = "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo="
@@ -549,7 +550,7 @@ a:hover {{ text-decoration: underline; color: #1a3a6e; }}
 </body>
 </html>"""
 
-output_path = r"C:\0_MBA\Healthcare\FDA New Drug Approval Dashboard\FDA Novel Drug Approvals 2021 Dashboard.html"
+output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "FDA Novel Drug Approvals 2021 Dashboard.html")
 with open(output_path, "w", encoding="utf-8") as f:
     f.write(html)
 

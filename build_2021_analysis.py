@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 """Build FDA 2021 Novel Drug Approvals – TA & Company Analysis HTML"""
 
 today = "2026-07-02"
@@ -348,7 +349,7 @@ header p {{ font-size: 13px; opacity: 0.82; }}
 </body>
 </html>"""
 
-output_path = r"C:\0_MBA\Healthcare\FDA New Drug Approval Dashboard\FDA 2021 Novel Drugs - TA and Company Analysis.html"
+output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "FDA 2021 Novel Drugs - TA and Company Analysis.html")
 with open(output_path, "w", encoding="utf-8") as f:
     f.write(html)
 
