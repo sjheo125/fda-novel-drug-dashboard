@@ -1,4 +1,21 @@
-# FDA Novel Drug Approvals 리스트+대시보드 프로젝트 진행 현황
+# FDA Novel Drug Approvals Dashboards (2021–2026)
+
+## 👉 [대시보드 바로 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/)
+
+아래 링크를 클릭하면 표가 웹페이지로 바로 열립니다. (저장소의 `.html` 파일을 직접 클릭하면 소스 코드가 보이므로, 아래 링크를 이용하세요.)
+
+| 연도 | 건수 | 승인 목록 | 치료영역·회사 분석 |
+|---|---|---|---|
+| 2021 | 50 | [대시보드 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%20Novel%20Drug%20Approvals%202021%20Dashboard.html) | [분석 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%202021%20Novel%20Drugs%20-%20TA%20and%20Company%20Analysis.html) |
+| 2022 | 37 | [대시보드 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%20Novel%20Drug%20Approvals%202022%20Dashboard.html) | [분석 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%202022%20Novel%20Drugs%20-%20TA%20and%20Company%20Analysis.html) |
+| 2023 | 55 | [대시보드 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%20Novel%20Drug%20Approvals%202023%20Dashboard.html) | [분석 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%202023%20Novel%20Drugs%20-%20TA%20and%20Company%20Analysis.html) |
+| 2024 | 54 | [대시보드 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%20Novel%20Drug%20Approvals%202024%20Dashboard.html) | [분석 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%202024%20Novel%20Drugs%20-%20TA%20and%20Company%20Analysis.html) |
+| 2025 | 46 | [대시보드 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%20Novel%20Drug%20Approvals%202025%20Dashboard.html) | [분석 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%202025%20Novel%20Drugs%20-%20TA%20and%20Company%20Analysis.html) |
+| 2026 | 45 (2026-09-28 기준) | [대시보드 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%20Novel%20Drug%20Approvals%202026%20Dashboard.html) | [분석 보기](https://sjheo125.github.io/fda-novel-drug-dashboard/FDA%202026%20Novel%20Drugs%20-%20TA%20and%20Company%20Analysis.html) |
+
+---
+
+## 프로젝트 진행 현황 (작업 기록)
 
 **항상 이 파일을 먼저 읽고 이어서 작업할 것.**
 
