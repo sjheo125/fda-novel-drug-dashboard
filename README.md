@@ -55,3 +55,4 @@ FDA "Novel Drug Approvals for {year}" 목록을 연도별(2021~2026)로 수집�
 - 2026년 갱신은 `update_2026_list.py`의 `ROWS` 리스트에 신규 항목을 추가하고 재실행하면 됨 (`python update_2026_list.py`) — xlsx와 Dashboard.html이 함께 갱신됨. `TA and Company Analysis.html`은 수작업 서술형이라 별도로 숫자·insight를 다시 계산해서 반영해야 함(자동화 안 되어 있음)
 - 리뷰(TOC) 미게시 10건(34~45번 중 Mimrylo·Zanvastro 제외) 다음 갱신 때 재확인, 가속승인 여부도 함께 확인
 - 갱신 후 index.html의 2026 건수/기준일도 수정해 GitHub에 함께 업로드
+- 2026-10-04 후속: 모든 build 스크립트 출력 경로를 상대경로로 변경. 2021/2024/2025 스크립트를 공개 HTML(이전 세션에서 Claude가 HTML만 직접 패치했던 것)과 일치시키고 오류 정정 — 이제 스크립트 재실행 결과가 공개본과 동일. 앞으로 수정은 HTML이 아니라 스크립트에 할 것.
