@@ -26,205 +26,222 @@ def toc_link(appno_num, year=2024):
 # note: "" | "Accelerated Approval" | "Accelerated Approval / Resubmission" | "Resubmission" | "CBER Product"
 
 drugs = [
-    (1,  "Zelsuvmi",       "berdazimer gel",                       "2024-01-19",
-     "Molluscum contagiosum in patients ≥1 year",
-     "Dermatology",         "Botanix Pharma",              "Biotech",    "NDA 217424", "217424", "Original",     2024, ""),
+    (1, 'Zelsuvmi', 'berdazimer gel', '2024-01-19',
+     'Molluscum contagiosum in patients ≥1 year',
+     'Dermatology', 'Botanix Pharma', 'Biotech', 'NDA 217424', '217424', 'Original', 2024, ''),
 
-    (2,  "Amtagvi",        "lifileucel",                           "2024-02-16",
-     "Unresectable or metastatic melanoma previously treated with a PD-1/PD-L1 blocking antibody and, if BRAF V600-mutant, a BRAF inhibitor",
-     "Oncology",            "Iovance Biotherapeutics",     "Biotech",    "BLA STN 125773", "", "Original",      2024, "CBER Product"),
+    (2, 'Amtagvi', 'lifileucel', '2024-02-16',
+     'Unresectable or metastatic melanoma previously treated with a PD-1/PD-L1 blocking antibody and, if BRAF V600-mutant, a BRAF inhibitor',
+     'Oncology', 'Iovance Biotherapeutics', 'Biotech', 'BLA STN 125773', '', 'Original', 2024, 'CBER Product'),
 
-    (3,  "Exblifep",       "cefepime + enmetazobactam",            "2024-02-22",
-     "Complicated urinary tract infections including pyelonephritis in adults caused by susceptible gram-negative organisms",
-     "Infectious Disease",  "Allecra Therapeutics",        "Biotech",    "NDA 216165", "216165", "Original",    2024, ""),
+    (3, 'Exblifep', 'cefepime + enmetazobactam', '2024-02-22',
+     'Complicated urinary tract infections including pyelonephritis in adults caused by susceptible gram-negative organisms',
+     'Infectious Disease', 'Allecra Therapeutics', 'Biotech', 'NDA 216165', '216165', 'Original', 2024, ''),
 
-    (4,  "Letybo",         "letibotulinumtoxinA-wlbg",             "2024-02-29",
-     "Temporary improvement in appearance of moderate-to-severe glabellar lines in adults",
-     "Dermatology",         "Hugel",                       "Biotech",    "BLA 761225", "761225", "Resubmission", 2024, ""),
+    (4, 'Letybo', 'letibotulinumtoxinA-wlbg', '2024-02-29',
+     'Temporary improvement in appearance of moderate-to-severe glabellar lines in adults',
+     'Dermatology', 'Hugel', 'Biotech', 'BLA 761225', '761225', 'Resubmission', 2024, 'Resubmission'),
 
-    (5,  "Tevimbra",       "tislelizumab-jsgr",                    "2024-03-13",
-     "Unresectable or metastatic esophageal squamous cell carcinoma after prior systemic chemotherapy",
-     "Oncology",            "BeiGene",                     "Big Pharma", "BLA 761232", "761232", "Original",    2024, ""),
+    (5, 'Tevimbra', 'tislelizumab-jsgr', '2024-03-13',
+     'Unresectable or metastatic esophageal squamous cell carcinoma after prior systemic chemotherapy',
+     'Oncology', 'BeiGene', 'Big Pharma', 'BLA 761232', '761232', 'Original', 2024, ''),
 
-    (6,  "Rezdiffra",      "resmetirom",                           "2024-03-14",
-     "Non-cirrhotic MASH with moderate-to-advanced liver fibrosis (F2–F3) as adjunct to diet and exercise",
-     "Hepatology",          "Madrigal Pharmaceuticals",    "Biotech",    "NDA 217785", "217785", "Original",    2024, ""),
+    (6, 'Rezdiffra', 'resmetirom', '2024-03-14',
+     'Non-cirrhotic MASH with moderate-to-advanced liver fibrosis (F2–F3) as adjunct to diet and exercise',
+     'Hepatology', 'Madrigal Pharmaceuticals', 'Biotech', 'NDA 217785', '217785', 'Original', 2024, 'Accelerated Approval'),
 
-    (7,  "Tryvio",         "aprocitentan",                         "2024-03-19",
-     "Adults with hypertension not adequately controlled on other antihypertensives (combination or add-on)",
-     "Cardiovascular",      "Janssen (J&J)",                "Big Pharma", "NDA 217686", "217686", "Original",   2024, ""),
+    (7, 'Tryvio', 'aprocitentan', '2024-03-19',
+     'Adults with hypertension not adequately controlled on other antihypertensives (combination or add-on)',
+     'Cardiovascular', 'Janssen (J&J)', 'Big Pharma', 'NDA 217686', '217686', 'Original', 2024, ''),
 
-    (8,  "Duvyzat",        "givinostat",                           "2024-03-21",
-     "Duchenne muscular dystrophy in patients ≥6 years",
-     "Rare Disease",        "ITF Therapeutics / Italfarmaco","Biotech",  "NDA 217865", "217865", "Original",    2024, ""),
+    (8, 'Duvyzat', 'givinostat', '2024-03-21',
+     'Duchenne muscular dystrophy in patients ≥6 years',
+     'Rare Disease', 'ITF Therapeutics / Italfarmaco', 'Biotech', 'NDA 217865', '217865', 'Original', 2024, ''),
 
-    (9,  "Winrevair",      "sotatercept-csrk",                     "2024-03-26",
-     "Adults with pulmonary arterial hypertension (PAH, WHO Group I) as add-on to background PAH therapy",
-     "Cardiovascular",      "Merck",                       "Big Pharma", "BLA 761363", "761363", "Original",    2024, ""),
+    (9, 'Winrevair', 'sotatercept-csrk', '2024-03-26',
+     'Adults with pulmonary arterial hypertension (PAH, WHO Group I) as add-on to background PAH therapy',
+     'Cardiovascular', 'Merck', 'Big Pharma', 'BLA 761363', '761363', 'Original', 2024, ''),
 
-    (10, "Vafseo",         "vadadustat",                           "2024-03-27",
-     "Anemia due to chronic kidney disease in adults on dialysis",
-     "Nephrology",          "Akebia Therapeutics",          "Biotech",   "NDA 215192", "215192", "Resubmission", 2024, ""),
+    (10, 'Vafseo', 'vadadustat', '2024-03-27',
+     'Anemia due to chronic kidney disease in adults on dialysis',
+     'Nephrology', 'Akebia Therapeutics', 'Biotech', 'NDA 215192', '215192', 'Resubmission', 2024, 'Resubmission'),
 
-    (11, "Voydeya",        "danicopan",                            "2024-04-02",
-     "Extravascular hemolysis as add-on to ravulizumab or eculizumab in adults with PNH",
-     "Hematology",          "Alexion / AstraZeneca",        "Big Pharma","NDA 218037", "218037", "Original",    2024, ""),
+    (11, 'Voydeya', 'danicopan', '2024-04-02',
+     'Extravascular hemolysis as add-on to ravulizumab or eculizumab in adults with PNH',
+     'Hematology', 'Alexion / AstraZeneca', 'Big Pharma', 'NDA 218037', '218037', 'Original', 2024, ''),
 
-    (12, "Zevtera",        "ceftobiprole medocaril sodium",        "2024-04-03",
-     "Hospital-acquired bacterial pneumonia, community-acquired bacterial pneumonia, and acute bacterial skin and skin structure infections in adults",
-     "Infectious Disease",  "Basilea Pharmaceutica",        "Biotech",   "NDA 218275", "218275", "Original",    2024, ""),
+    (12, 'Zevtera', 'ceftobiprole medocaril sodium', '2024-04-03',
+     'Hospital-acquired bacterial pneumonia, community-acquired bacterial pneumonia, and acute bacterial skin and skin structure infections in adults',
+     'Infectious Disease', 'Basilea Pharmaceutica', 'Biotech', 'NDA 218275', '218275', 'Original', 2024, ''),
 
-    (13, "Lumisight",      "pegulicianine",                        "2024-04-17",
-     "Optical imaging agent for intraoperative detection of residual cancerous tissue in the lumpectomy cavity",
-     "Oncology",            "Lumicell",                     "Biotech",   "NDA 214511", "214511", "Original",    2024, ""),
+    (13, 'Lumisight', 'pegulicianine', '2024-04-17',
+     'Optical imaging agent for intraoperative detection of residual cancerous tissue in the lumpectomy cavity',
+     'Oncology', 'Lumicell', 'Biotech', 'NDA 214511', '214511', 'Original', 2024, ''),
 
-    (14, "Anktiva",        "nogapendekin alfa inbakicept-pmln",    "2024-04-22",
-     "BCG-unresponsive non-muscle invasive bladder cancer with CIS with or without papillary tumors (with BCG)",
-     "Oncology",            "ImmunGene",                    "Biotech",   "BLA 761336", "761336", "Original",    2024, ""),
+    (14, 'Anktiva', 'nogapendekin alfa inbakicept-pmln', '2024-04-22',
+     'BCG-unresponsive non-muscle invasive bladder cancer with CIS with or without papillary tumors (with BCG)',
+     'Oncology', 'ImmunGene', 'Biotech', 'BLA 761336', '761336', 'Original', 2024, ''),
 
-    (15, "Ojemda",         "tovorafenib",                          "2024-04-23",
-     "Relapsed or refractory pediatric low-grade glioma harboring a BRAF fusion or rearrangement, or BRAF V600 mutation (≥6 months)",
-     "Oncology",            "Day One Biopharmaceuticals",   "Biotech",   "NDA 218033", "218033", "Original",    2024, "Accelerated Approval"),
+    (15, 'Ojemda', 'tovorafenib', '2024-04-23',
+     'Relapsed or refractory pediatric low-grade glioma harboring a BRAF fusion or rearrangement, or BRAF V600 mutation (≥6 months)',
+     'Oncology', 'Day One Biopharmaceuticals', 'Biotech', 'NDA 218033', '218033', 'Original', 2024, 'Accelerated Approval'),
 
-    (16, "Imdelltra",      "tarlatamab-dlle",                      "2024-05-16",
-     "Extensive-stage small cell lung cancer with disease progression on or after platinum-based chemotherapy",
-     "Oncology",            "Amgen",                        "Big Pharma","BLA 761344", "761344", "Original",    2024, "Accelerated Approval"),
+    (16, 'Imdelltra', 'tarlatamab-dlle', '2024-05-16',
+     'Extensive-stage small cell lung cancer with disease progression on or after platinum-based chemotherapy',
+     'Oncology', 'Amgen', 'Big Pharma', 'BLA 761344', '761344', 'Original', 2024, 'Accelerated Approval'),
 
-    (17, "Rytelo",         "imetelstat",                           "2024-06-06",
-     "Low- to intermediate-1 risk MDS with transfusion-dependent anemia requiring ≥4 RBC units/8 weeks, not responsive to ESAs",
-     "Hematology",          "Geron Corporation",            "Biotech",   "NDA 217779", "217779", "Original",    2024, ""),
+    (17, 'Rytelo', 'imetelstat', '2024-06-06',
+     'Low- to intermediate-1 risk MDS with transfusion-dependent anemia requiring ≥4 RBC units/8 weeks, not responsive to ESAs',
+     'Hematology', 'Geron Corporation', 'Biotech', 'NDA 217779', '217779', 'Original', 2024, ''),
 
-    (18, "Iqirvo",         "elafibranor",                          "2024-06-10",
-     "Primary biliary cholangitis with inadequate response to UDCA (with UDCA) or unable to tolerate UDCA (monotherapy)",
-     "Hepatology",          "Ipsen",                        "Big Pharma","NDA 218860", "218860", "Original",    2024, "Accelerated Approval"),
+    (18, 'Iqirvo', 'elafibranor', '2024-06-10',
+     'Primary biliary cholangitis with inadequate response to UDCA (with UDCA) or unable to tolerate UDCA (monotherapy)',
+     'Hepatology', 'Ipsen', 'Big Pharma', 'NDA 218860', '218860', 'Original', 2024, 'Accelerated Approval'),
 
-    (19, "Sofdra",         "sofpironium bromide",                  "2024-06-18",
-     "Primary axillary hyperhidrosis in adults and pediatric patients ≥9 years",
-     "Dermatology",         "Botanix Pharma",               "Biotech",   "NDA 217347", "217347", "Original",   2024, ""),
+    (19, 'Sofdra', 'sofpironium bromide', '2024-06-18',
+     'Primary axillary hyperhidrosis in adults and pediatric patients ≥9 years',
+     'Dermatology', 'Botanix Pharma', 'Biotech', 'NDA 217347', '217347', 'Original', 2024, ''),
 
-    (20, "Piasky",         "crovalimab-akkz",                      "2024-06-20",
-     "Paroxysmal nocturnal hemoglobinuria in adults and pediatric patients ≥13 years weighing ≥40 kg",
-     "Hematology",          "Genentech / Roche",            "Big Pharma","BLA 761388", "761388", "Original",   2024, ""),
+    (20, 'Piasky', 'crovalimab-akkz', '2024-06-20',
+     'Paroxysmal nocturnal hemoglobinuria in adults and pediatric patients ≥13 years weighing ≥40 kg',
+     'Hematology', 'Genentech / Roche', 'Big Pharma', 'BLA 761388', '761388', 'Original', 2024, ''),
 
-    (21, "Xolremdi",       "mavorixafor",                          "2024-06-20",
-     "WHIM syndrome in adults and pediatric patients ≥12 years",
-     "Rare Disease",        "X4 Pharmaceuticals",           "Biotech",   "NDA 218709", "218709", "Original",   2024, ""),
+    (21, 'Xolremdi', 'mavorixafor', '2024-06-20',
+     'WHIM syndrome in adults and pediatric patients ≥12 years',
+     'Rare Disease', 'X4 Pharmaceuticals', 'Biotech', 'NDA 218709', '218709', 'Original', 2024, ''),
 
-    (22, "Ohtuvayre",      "ensifentrine",                         "2024-06-26",
-     "Maintenance treatment of chronic obstructive pulmonary disease (COPD) in adults",
-     "Pulmonology",         "Verona Pharma",                "Biotech",   "NDA 217389", "217389", "Original",   2024, ""),
+    (22, 'Ohtuvayre', 'ensifentrine', '2024-06-26',
+     'Maintenance treatment of chronic obstructive pulmonary disease (COPD) in adults',
+     'Pulmonology', 'Verona Pharma', 'Biotech', 'NDA 217389', '217389', 'Original', 2024, ''),
 
-    (23, "Kisunla",        "donanemab-azbt",                       "2024-07-02",
+    (23, 'Kisunla', 'donanemab-azbt', '2024-07-02',
      "Early symptomatic Alzheimer's disease (mild cognitive impairment or mild dementia) in adults",
-     "Neurology",           "Eli Lilly",                    "Big Pharma","BLA 761248", "761248", "Original",   2024, ""),
+     'Neurology', 'Eli Lilly', 'Big Pharma', 'BLA 761248', '761248', 'Original', 2024, ''),
 
-    (24, "Leqselvi",       "deuruxolitinib",                       "2024-07-25",
-     "Alopecia areata in adults and pediatric patients ≥12 years",
-     "Dermatology",         "Sun Pharma",                   "Big Pharma","NDA 217900", "217900", "Original",   2024, ""),
+    (24, 'Leqselvi', 'deuruxolitinib', '2024-07-25',
+     'Alopecia areata in adults and pediatric patients ≥12 years',
+     'Dermatology', 'Sun Pharma', 'Big Pharma', 'NDA 217900', '217900', 'Original', 2024, ''),
 
-    (25, "Voranigo",       "vorasidenib",                          "2024-08-06",
-     "Adults and pediatric patients ≥12 years with residual or recurrent grade 2 astrocytoma or oligodendroglioma with a susceptible IDH1 or IDH2 mutation",
-     "Oncology",            "Servier Pharmaceuticals",      "Big Pharma","NDA 218784", "218784", "Original",   2024, ""),
+    (25, 'Voranigo', 'vorasidenib', '2024-08-06',
+     'Adults and pediatric patients ≥12 years with residual or recurrent grade 2 astrocytoma or oligodendroglioma with a susceptible IDH1 or IDH2 mutation',
+     'Oncology', 'Servier Pharmaceuticals', 'Big Pharma', 'NDA 218784', '218784', 'Original', 2024, ''),
 
-    (26, "Yorvipath",      "palopegteriparatide",                  "2024-08-09",
-     "Hypoparathyroidism in adults",
-     "Endocrinology",       "Ascendis Pharma",              "Biotech",   "NDA 216490", "216490", "Original",   2024, ""),
+    (26, 'Yorvipath', 'palopegteriparatide', '2024-08-09',
+     'Hypoparathyroidism in adults',
+     'Endocrinology', 'Ascendis Pharma', 'Biotech', 'NDA 216490', '216490', 'Original', 2024, ''),
 
-    (27, "Nemluvio",       "nemolizumab-ilto",                     "2024-08-12",
-     "Prurigo nodularis in adults",
-     "Dermatology",         "Galderma",                     "Big Pharma","BLA 761390", "761390", "Original",   2024, "Accelerated Approval"),
+    (27, 'Nemluvio', 'nemolizumab-ilto', '2024-08-12',
+     'Prurigo nodularis in adults',
+     'Dermatology', 'Galderma', 'Big Pharma', 'BLA 761390', '761390', 'Original', 2024, ''),
 
-    (28, "Livdelzi",       "seladelpar",                           "2024-08-14",
-     "Primary biliary cholangitis with inadequate response to UDCA (with UDCA) or unable to tolerate UDCA (monotherapy)",
-     "Hepatology",          "CymaBay / Gilead",             "Biotech",   "NDA 217899", "217899", "Original",   2024, "Accelerated Approval"),
+    (28, 'Livdelzi', 'seladelpar', '2024-08-14',
+     'Primary biliary cholangitis with inadequate response to UDCA (with UDCA) or unable to tolerate UDCA (monotherapy)',
+     'Hepatology', 'CymaBay / Gilead', 'Biotech', 'NDA 217899', '217899', 'Original', 2024, 'Accelerated Approval'),
 
-    (29, "Niktimvo",       "axatilimab-csfr",                      "2024-08-14",
-     "Chronic graft-versus-host disease after failure of ≥2 prior lines of systemic therapy (adults and pediatric patients ≥40 kg)",
-     "Oncology / Immunology","Syndax Pharmaceuticals",      "Biotech",   "BLA 761411", "761411", "Original",  2024, "Accelerated Approval"),
+    (29, 'Niktimvo', 'axatilimab-csfr', '2024-08-14',
+     'Chronic graft-versus-host disease after failure of ≥2 prior lines of systemic therapy (adults and pediatric patients ≥40 kg)',
+     'Oncology / Immunology', 'Syndax Pharmaceuticals', 'Biotech', 'BLA 761411', '761411', 'Original', 2024, ''),
 
-    (30, "Lazcluze",       "lazertinib",                           "2024-08-19",
-     "EGFR exon 19 deletions or exon 21 L858R-mutated locally advanced or metastatic NSCLC (first-line, with amivantamab-vmjw)",
-     "Oncology",            "Janssen (J&J)",                "Big Pharma","NDA 219008", "219008", "Original",   2024, ""),
+    (30, 'Lazcluze', 'lazertinib', '2024-08-19',
+     'EGFR exon 19 deletions or exon 21 L858R-mutated locally advanced or metastatic NSCLC (first-line, with amivantamab-vmjw)',
+     'Oncology', 'Janssen (J&J)', 'Big Pharma', 'NDA 219008', '219008', 'Original', 2024, ''),
 
-    (31, "Ebglyss",        "lebrikizumab-lbkz",                    "2024-09-13",
-     "Moderate-to-severe atopic dermatitis in adults and pediatric patients ≥12 years not adequately controlled with topical therapies",
-     "Dermatology",         "Eli Lilly",                    "Big Pharma","BLA 761306", "761306", "Resubmission",2024, ""),
+    (31, 'Ebglyss', 'lebrikizumab-lbkz', '2024-09-13',
+     'Moderate-to-severe atopic dermatitis in adults and pediatric patients ≥12 years not adequately controlled with topical therapies',
+     'Dermatology', 'Eli Lilly', 'Big Pharma', 'BLA 761306', '761306', 'Resubmission', 2024, 'Resubmission'),
 
-    (32, "Miplyffa",       "arimoclomol",                          "2024-09-20",
-     "Neurological manifestations of Niemann-Pick disease type C (NPC) in adults and patients ≥2 years (with miglustat)",
-     "Rare Disease",        "Zevra Therapeutics",           "Biotech",   "NDA 214927", "214927", "Original",   2024, ""),
+    (32, 'Miplyffa', 'arimoclomol', '2024-09-20',
+     'Neurological manifestations of Niemann-Pick disease type C (NPC) in adults and patients ≥2 years (with miglustat)',
+     'Rare Disease', 'Zevra Therapeutics', 'Biotech', 'NDA 214927', '214927', 'Original', 2024, ''),
 
-    (33, "Aqneursa",       "levacetylleucine",                     "2024-09-24",
-     "Neurological manifestations of Niemann-Pick disease type C in adults and patients weighing ≥15 kg",
-     "Rare Disease",        "IntraBio",                     "Biotech",   "NDA 219132", "219132", "Original",   2024, ""),
+    (33, 'Aqneursa', 'levacetylleucine', '2024-09-24',
+     'Neurological manifestations of Niemann-Pick disease type C in adults and patients weighing ≥15 kg',
+     'Rare Disease', 'IntraBio', 'Biotech', 'NDA 219132', '219132', 'Original', 2024, ''),
 
-    (34, "Cobenfy",        "xanomeline + trospium chloride",       "2024-09-26",
-     "Schizophrenia in adults",
-     "Psychiatry",          "Bristol-Myers Squibb",         "Big Pharma","NDA 216158", "216158", "Original",   2024, ""),
+    (34, 'Cobenfy', 'xanomeline + trospium chloride', '2024-09-26',
+     'Schizophrenia in adults',
+     'Psychiatry', 'Bristol-Myers Squibb', 'Big Pharma', 'NDA 216158', '216158', 'Original', 2024, ''),
 
-    (35, "Flyrcado",       "flurpiridaz F 18",                     "2024-09-27",
-     "PET myocardial perfusion imaging (MPI) under rest or stress in adults with known or suspected coronary artery disease",
-     "Cardiovascular",      "GE HealthCare",                "Big Pharma","NDA 215168", "215168", "Original",   2024, ""),
+    (35, 'Flyrcado', 'flurpiridaz F 18', '2024-09-27',
+     'PET myocardial perfusion imaging (MPI) under rest or stress in adults with known or suspected coronary artery disease',
+     'Cardiovascular', 'GE HealthCare', 'Big Pharma', 'NDA 215168', '215168', 'Original', 2024, ''),
 
-    (36, "Itovebi",        "inavolisib",                           "2024-10-09",
-     "PIK3CA-mutated HR-positive, HER2-negative locally advanced or metastatic breast cancer with disease progression on/after endocrine therapy (with palbociclib + fulvestrant)",
-     "Oncology",            "Genentech / Roche",            "Big Pharma","NDA 219249", "219249", "Original",   2024, "Accelerated Approval"),
+    (36, 'Itovebi', 'inavolisib', '2024-10-09',
+     'PIK3CA-mutated HR-positive, HER2-negative locally advanced or metastatic breast cancer with disease progression on/after endocrine therapy (with palbociclib + fulvestrant)',
+     'Oncology', 'Genentech / Roche', 'Big Pharma', 'NDA 219249', '219249', 'Original', 2024, ''),
 
-    (37, "Hympavzi",       "marstacimab-hncq",                     "2024-10-11",
-     "Routine prophylaxis to prevent or reduce bleeding in adults and patients ≥12 years with hemophilia A without FVIII inhibitors or hemophilia B without FIX inhibitors",
-     "Hematology",          "Pfizer",                       "Big Pharma","BLA 761369", "761369", "Original",   2024, ""),
+    (37, 'Hympavzi', 'marstacimab-hncq', '2024-10-11',
+     'Routine prophylaxis to prevent or reduce bleeding in adults and patients ≥12 years with hemophilia A without FVIII inhibitors or hemophilia B without FIX inhibitors',
+     'Hematology', 'Pfizer', 'Big Pharma', 'BLA 761369', '761369', 'Original', 2024, ''),
 
-    (38, "Vyloy",          "zolbetuximab-clzb",                    "2024-10-18",
-     "CLDN18.2-positive, HER2-negative locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma (first-line, with fluoropyrimidine- and platinum-based chemotherapy)",
-     "Oncology",            "Astellas",                     "Big Pharma","BLA 761365", "761365", "Resubmission",2024, ""),
+    (38, 'Vyloy', 'zolbetuximab-clzb', '2024-10-18',
+     'CLDN18.2-positive, HER2-negative locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma (first-line, with fluoropyrimidine- and platinum-based chemotherapy)',
+     'Oncology', 'Astellas', 'Big Pharma', 'BLA 761365', '761365', 'Resubmission', 2024, 'Resubmission'),
 
-    (39, "Orlynvah",       "sulopenem etzadroxil + probenecid",    "2024-10-24",
-     "Uncomplicated urinary tract infections caused by susceptible microorganisms in adult women",
-     "Infectious Disease",  "Iterum Therapeutics",          "Biotech",   "NDA 213972", "213972", "Original",   2024, ""),
+    (39, 'Orlynvah', 'sulopenem etzadroxil + probenecid', '2024-10-24',
+     'Uncomplicated urinary tract infections caused by susceptible microorganisms in adult women',
+     'Infectious Disease', 'Iterum Therapeutics', 'Biotech', 'NDA 213972', '213972', 'Original', 2024, ''),
 
-    (40, "Ziihera",        "zanidatamab-hrii",                     "2024-11-06",
-     "Previously treated, unresectable or metastatic HER2-positive (IHC 3+) biliary tract cancer",
-     "Oncology",            "Jazz Pharmaceuticals",         "Big Pharma","BLA 761416", "761416", "Original",   2024, "Accelerated Approval"),
+    (40, 'Ziihera', 'zanidatamab-hrii', '2024-11-06',
+     'Previously treated, unresectable or metastatic HER2-positive (IHC 3+) biliary tract cancer',
+     'Oncology', 'Jazz Pharmaceuticals', 'Big Pharma', 'BLA 761416', '761416', 'Original', 2024, 'Accelerated Approval'),
 
-    (41, "Aucatzyl",       "obecabtagene autoleucel",              "2024-11-08",
-     "Relapsed or refractory B-cell precursor acute lymphoblastic leukemia in adults",
-     "Oncology",            "Autolus Therapeutics",         "Biotech",   "BLA STN 125813","",  "Original",    2024, "CBER Product"),
+    (41, 'Aucatzyl', 'obecabtagene autoleucel', '2024-11-08',
+     'Relapsed or refractory B-cell precursor acute lymphoblastic leukemia in adults',
+     'Oncology', 'Autolus Therapeutics', 'Biotech', 'BLA STN 125813', '', 'Original', 2024, 'CBER Product'),
 
-    (42, "Revuforj",       "revumenib",                            "2024-11-15",
-     "Relapsed or refractory acute leukemia with a KMT2A translocation in adults and patients ≥1 year",
-     "Oncology",            "Syndax Pharmaceuticals",       "Biotech",   "NDA 218944", "218944", "Original",   2024, "Accelerated Approval"),
+    (42, 'Revuforj', 'revumenib', '2024-11-15',
+     'Relapsed or refractory acute leukemia with a KMT2A translocation in adults and patients ≥1 year',
+     'Oncology', 'Syndax Pharmaceuticals', 'Biotech', 'NDA 218944', '218944', 'Original', 2024, ''),
 
-    (43, "Bizengri",       "zenocutuzumab-zbco",                   "2024-11-21",
-     "NRG1 gene fusion-positive locally advanced or metastatic non-small cell lung cancer or pancreatic adenocarcinoma in adults after prior systemic therapy",
-     "Oncology",            "Merus",                        "Biotech",   "BLA 761352", "761352", "Original",   2024, "Accelerated Approval"),
+    (43, 'Bizengri', 'zenocutuzumab-zbco', '2024-11-21',
+     'NRG1 gene fusion-positive locally advanced or metastatic non-small cell lung cancer or pancreatic adenocarcinoma in adults after prior systemic therapy',
+     'Oncology', 'Merus', 'Biotech', 'BLA 761352', '761352', 'Original', 2024, 'Accelerated Approval'),
 
-    (44, "Attruby",        "acoramidis",                           "2024-11-22",
-     "Cardiomyopathy of wild-type or variant transthyretin-mediated amyloidosis (ATTR-CM) to reduce cardiovascular death and cardiovascular-related hospitalization",
-     "Cardiovascular",      "BridgeBio Pharma",             "Biotech",   "NDA 216540", "216540", "Original",   2024, ""),
+    (44, 'Attruby', 'acoramidis', '2024-11-22',
+     'Cardiomyopathy of wild-type or variant transthyretin-mediated amyloidosis (ATTR-CM) to reduce cardiovascular death and cardiovascular-related hospitalization',
+     'Cardiovascular', 'BridgeBio Pharma', 'Biotech', 'NDA 216540', '216540', 'Original', 2024, ''),
 
-    (45, "Unloxcyt",       "cosibelimab-ipdl",                     "2024-12-13",
-     "Metastatic cutaneous squamous cell carcinoma or locally advanced CSCC not eligible for curative surgery or radiation",
-     "Oncology",            "Checkpoint Therapeutics",      "Biotech",   "BLA 761297", "761297", "Original",   2025, ""),
+    (45, 'Rapiblyk', 'landiolol hydrochloride', '2024-11-22',
+     'Rate control of supraventricular tachycardia requiring rapid heart rate control in adults in a hospital setting',
+     'Cardiovascular', 'AOP Orphan Pharmaceuticals GmbH', 'Biotech', 'NDA 217202', '217202', 'Resubmission', 2024, 'Resubmission'),
 
-    (46, "Ensacove",       "ensartinib",                           "2024-12-13",
-     "Adults with ALK-positive locally advanced or metastatic NSCLC who have not previously received an ALK inhibitor",
-     "Oncology",            "Xcovery Holdings",             "Biotech",   "NDA 218171", "218171", "Original",   2025, ""),
+    (46, 'Iomervu', 'iomeprol', '2024-11-27',
+     'Intra-arterial and intravenous procedures for diagnostic radiographic imaging in adults',
+     'Radiology / Diagnostics', 'Bracco Diagnostic Inc.', 'Biotech', 'NDA 216016', '216016', 'Original', 2024, ''),
 
-    (47, "Ryoncil",        "remestemcel-L-rknd",                   "2024-12-18",
-     "Steroid-refractory acute graft-versus-host disease in pediatric patients ≥2 months",
-     "Oncology / Immunology","Mesoblast",                   "Biotech",   "BLA STN 125706","",  "Original",    2024, "CBER Product"),
+    (47, 'Unloxcyt', 'cosibelimab-ipdl', '2024-12-13',
+     'Metastatic cutaneous squamous cell carcinoma or locally advanced CSCC not eligible for curative surgery or radiation',
+     'Oncology', 'Checkpoint Therapeutics', 'Biotech', 'BLA 761297', '761297', 'Original', 2025, ''),
 
-    (48, "Alyftrek",       "vanzacaftor / tezacaftor / deutivacaftor","2024-12-20",
-     "Cystic fibrosis in patients ≥6 years with at least one F508del mutation or another responsive mutation in the CFTR gene",
-     "Pulmonology",         "Vertex Pharmaceuticals",       "Biotech",   "NDA 218730", "218730", "Original",   2025, ""),
+    (48, 'Crenessity', 'crinecerfont', '2024-12-13',
+     'Classic congenital adrenal hyperplasia (CAH) in adults and pediatric patients ≥4 years as part of a complete treatment regimen',
+     'Endocrinology / Rare Disease', 'Neurocrine Biosciences', 'Biotech', 'NDA 218808', '218808', 'Original', 2024, ''),
 
-    (49, "Alhemo",         "concizumab-mtci",                      "2024-12-20",
-     "Routine prophylaxis to prevent or reduce bleeding in adults and patients ≥12 years with hemophilia A or B with inhibitors",
-     "Hematology",          "Novo Nordisk",                 "Big Pharma","BLA 761315", "761315", "Original",   2025, ""),
+    (49, 'Ensacove', 'ensartinib', '2024-12-18',
+     'Adults with ALK-positive locally advanced or metastatic NSCLC who have not previously received an ALK inhibitor',
+     'Oncology', 'Xcovery Holdings', 'Biotech', 'NDA 218171', '218171', 'Original', 2025, ''),
 
-    (50, "Opdivo Qvantig", "nivolumab + hyaluronidase-nvhy",        "2024-12-27",
-     "Subcutaneous formulation for all approved IV nivolumab indications in adults and pediatric patients ≥12 years",
-     "Oncology",            "Bristol-Myers Squibb",         "Big Pharma","BLA 761381", "761381", "Original",   2025, ""),
+    (50, 'Ryoncil', 'remestemcel-L-rknd', '2024-12-18',
+     'Steroid-refractory acute graft-versus-host disease in pediatric patients ≥2 months',
+     'Oncology / Immunology', 'Mesoblast', 'Biotech', 'BLA STN 125706', '', 'Original', 2024, 'CBER Product'),
+
+    (51, 'Tryngolza', 'olezarsen', '2024-12-19',
+     'Adjunct to diet to reduce triglycerides in adults with familial chylomicronemia syndrome (FCS)',
+     'Cardiovascular / Metabolic', 'Ionis Pharmaceuticals', 'Biotech', 'NDA 218614', '218614', 'Original', 2024, ''),
+
+    (52, 'Alyftrek', 'vanzacaftor / tezacaftor / deutivacaftor', '2024-12-20',
+     'Cystic fibrosis in patients ≥6 years with at least one F508del mutation or another responsive mutation in the CFTR gene',
+     'Pulmonology', 'Vertex Pharmaceuticals', 'Biotech', 'NDA 218730', '218730', 'Original', 2025, ''),
+
+    (53, 'Alhemo', 'concizumab-mtci', '2024-12-20',
+     'Routine prophylaxis to prevent or reduce bleeding in adults and patients ≥12 years with hemophilia A or B with inhibitors',
+     'Hematology', 'Novo Nordisk', 'Big Pharma', 'BLA 761315', '761315', 'Original', 2025, ''),
+
+    (54, 'Opdivo Qvantig', 'nivolumab + hyaluronidase-nvhy', '2024-12-27',
+     'Subcutaneous formulation for all approved IV nivolumab indications in adults and pediatric patients ≥12 years',
+     'Oncology', 'Bristol-Myers Squibb', 'Big Pharma', 'BLA 761381', '761381', 'Original', 2025, ''),
+
 ]
 
 # --- HTML Generation ---
@@ -453,15 +470,15 @@ a:hover {{ text-decoration: underline; color: #1a3a6e; }}
 
   <header>
     <h1>FDA 2024 Novel Drug Approvals Dashboard</h1>
-    <p>Content current as of {today} &nbsp;|&nbsp; Source: FDA Novel Drug Approvals 2024 &nbsp;|&nbsp; Total: 50 novel drug approvals</p>
+    <p>Content current as of {today} &nbsp;|&nbsp; Source: FDA Novel Drug Approvals 2024 &nbsp;|&nbsp; Total: 54 entries (50 CDER novel approvals + 3 CBER products + 1 other)</p>
   </header>
 
   <div class="stats-bar">
-    <div class="stat-card"><div class="val">50</div><div class="lbl">Total Novel Approvals</div></div>
+    <div class="stat-card"><div class="val">54</div><div class="lbl">Total Entries</div></div>
     <div class="stat-card"><div class="val">21</div><div class="lbl">Big Pharma</div></div>
-    <div class="stat-card"><div class="val">29</div><div class="lbl">Biotech</div></div>
-    <div class="stat-card"><div class="val">10</div><div class="lbl">Accelerated Approval</div></div>
-    <div class="stat-card"><div class="val">4</div><div class="lbl">Resubmission</div></div>
+    <div class="stat-card"><div class="val">33</div><div class="lbl">Biotech</div></div>
+    <div class="stat-card"><div class="val">7</div><div class="lbl">Accelerated Approval</div></div>
+    <div class="stat-card"><div class="val">5</div><div class="lbl">Resubmission</div></div>
     <div class="stat-card"><div class="val">19</div><div class="lbl">Oncology Drugs</div></div>
   </div>
 

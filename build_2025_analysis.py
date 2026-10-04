@@ -100,7 +100,7 @@ pct_bio = n_bio / total * 100
 
 # TA oncology breakdown (what types of cancer)
 oncology_cancers = [
-    ("Breast Cancer", 3), ("NSCLC", 6), ("AML / Leukemia", 3), ("Multiple Myeloma", 1),
+    ("Breast Cancer", 2), ("NSCLC", 6), ("AML / Leukemia", 2), ("Multiple Myeloma", 1),
     ("Ovarian Cancer", 1), ("Nasopharyngeal Carcinoma", 1), ("Glioma (Brain)", 1), ("TGCT / NF1", 2),
 ]
 onc_bars = ""
@@ -310,10 +310,11 @@ a:hover {{ text-decoration: underline; }}
   <!-- Oncology breakdown -->
   <div class="section">
     <h2>🎗 Oncology 세부 분류 ({sum(v for _,v in oncology_cancers)}개 항암제)</h2>
-    {onc_bars}
+{onc_bars}
     <p style="font-size:12px;color:#5b6472;margin-top:12px;">
       * NSCLC(비소세포폐암) 6개: Emrelis(c-Met), Ibtrozi(ROS1), Zegfrovy(EGFR exon20), Hernexeos(HER2), Hyrnuo(HER2), Keytruda Qlex(PD-1 SC formulation)<br>
-      * AML/Leukemia 3개: Grafapex(전처치), Komzifti(NPM1+), Lynozyfic(MM포함 혈액암)
+      * Breast Cancer 2개: Datroway(HR+/HER2-), Inluriyo(ESR1+)<br>
+      * AML/Leukemia 2개: Grafapex(전처치), Komzifti(NPM1+) — Lynozyfic은 Multiple Myeloma로 별도 분류
     </p>
   </div>
 

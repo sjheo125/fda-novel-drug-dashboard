@@ -305,20 +305,145 @@ a:hover {{ text-decoration: underline; }}
 
   <header>
     <h1>FDA 2024 Novel Drug Approvals – Therapeutic Area &amp; Company Analysis</h1>
-    <p>Content current as of {today} &nbsp;|&nbsp; Total 50 novel approvals &nbsp;|&nbsp;
+    <p>Content current as of {today} &nbsp;|&nbsp; Total 54 entries (50 CDER + 3 CBER + 1 other) &nbsp;|&nbsp;
        Data source: <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2024" style="color:#fff;text-decoration:underline;" target="_blank">FDA Novel Drug Approvals for 2024</a></p>
   </header>
 
   <!-- TA Analysis -->
   <div class="section">
     <h2>📊 Therapeutic Area별 승인 현황 (Consolidated)</h2>
-    {ta_bars}
+    
+    <div class="bar-row">
+      <div class="bar-label">Oncology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#c8303a"></div></div>
+      <div class="bar-count">19</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Dermatology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:31.6%;background:#2657a8"></div></div>
+      <div class="bar-count">6</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Hematology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:26.3%;background:#3473d0"></div></div>
+      <div class="bar-count">5</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Rare Disease</div>
+      <div class="bar-track"><div class="bar-fill" style="width:21.1%;background:#e07020"></div></div>
+      <div class="bar-count">4</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Cardiovascular / Metabolic</div>
+      <div class="bar-track"><div class="bar-fill" style="width:31.6%;background:#3e8e6e"></div></div>
+      <div class="bar-count">6</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Hepatology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:15.8%;background:#4a90e2"></div></div>
+      <div class="bar-count">3</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Infectious Disease</div>
+      <div class="bar-track"><div class="bar-fill" style="width:15.8%;background:#6aa3e8"></div></div>
+      <div class="bar-count">3</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Neurology / Psychiatry</div>
+      <div class="bar-track"><div class="bar-fill" style="width:10.5%;background:#56b38a"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Pulmonology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:10.5%;background:#88b8ef"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Nephrology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:5.3%;background:#a0c8f5"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Endocrinology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:10.5%;background:#92dab8"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Radiology / Diagnostics</div>
+      <div class="bar-track"><div class="bar-fill" style="width:5.3%;background:#b0a0d0"></div></div>
+      <div class="bar-count">1</div>
+    </div>
   </div>
 
   <!-- Oncology breakdown -->
   <div class="section">
     <h2>🎗 Oncology 세부 분류 (19개 항암제)</h2>
-    {onc_bars}
+    
+    <div class="bar-row">
+      <div class="bar-label">NSCLC (비소세포폐암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#c8303a"></div></div>
+      <div class="bar-count">3</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Breast Cancer (유방암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:66.7%;background:#c8303a"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Glioma / Brain (뇌종양)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:66.7%;background:#c8303a"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Leukemia / ALL (백혈병)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:66.7%;background:#c8303a"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">GVHD (이식편대숙주병)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:66.7%;background:#c8303a"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Gastric / GEJ (위암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Biliary Tract (담도암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">SCLC (소세포폐암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Bladder Cancer (방광암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Melanoma (흑색종)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Esophageal Cancer (식도암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">CSCC (피부편평세포암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Multi-indication (Opdivo Qvantig)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
     <p style="font-size:12px;color:#5b6472;margin-top:14px;">
       * NSCLC 3개: Lazcluze(EGFR, 1st-line+amivantamab), Ensacove(ALK 1st-line), Bizengri(NRG1 fusion)<br>
       * Leukemia/ALL 2개: Revuforj(KMT2A translocation, menin 억제), Aucatzyl(B-cell ALL, CAR-T)<br>
@@ -332,21 +457,21 @@ a:hover {{ text-decoration: underline; }}
     <h2>🏢 Company Type – Big Pharma vs Biotech</h2>
 
     <div class="pct-bar" style="margin-bottom:20px;">
-      <div class="pct-seg" style="width:{pct_big:.1f}%;background:#16243f;">Big Pharma {n_big} ({pct_big:.0f}%)</div>
-      <div class="pct-seg" style="width:{pct_bio:.1f}%;background:#2657a8;">Biotech {n_bio} ({pct_bio:.0f}%)</div>
+      <div class="pct-seg" style="width:39.0%;background:#16243f;">Big Pharma 21 (39%)</div>
+      <div class="pct-seg" style="width:61.0%;background:#2657a8;">Biotech 33 (61%)</div>
     </div>
 
     <div class="company-grid">
       <div class="company-block big">
-        <h3>🏦 Big Pharma ({n_big}개)</h3>
+        <h3>🏦 Big Pharma (21개)</h3>
         <ul class="co-list">
-          {"".join(f"<li>{co} ({cnt})</li>" for co, cnt in companies_big)}
+          <li>J&J / Janssen (2)</li><li>Eli Lilly (2)</li><li>Genentech / Roche (2)</li><li>Bristol-Myers Squibb (2)</li><li>BeiGene (1)</li><li>Merck (1)</li><li>AstraZeneca / Alexion (1)</li><li>Amgen (1)</li><li>Ipsen (1)</li><li>Sun Pharma (1)</li><li>Servier (1)</li><li>Galderma (1)</li><li>GE HealthCare (1)</li><li>Pfizer (1)</li><li>Astellas (1)</li><li>Jazz Pharmaceuticals (1)</li><li>Novo Nordisk (1)</li>
         </ul>
       </div>
       <div class="company-block bio">
-        <h3>🔬 Biotech ({n_bio}개)</h3>
+        <h3>🔬 Biotech (33개)</h3>
         <ul class="co-list">
-          {"".join(f"<li>{co} ({cnt})</li>" for co, cnt in companies_bio)}
+          <li>Botanix Pharma (2)</li><li>Syndax Pharmaceuticals (2)</li><li>Iovance Biotherapeutics (1)</li><li>Allecra Therapeutics (1)</li><li>Hugel (1)</li><li>Madrigal Pharmaceuticals (1)</li><li>ITF Therapeutics / Italfarmaco (1)</li><li>Akebia Therapeutics (1)</li><li>Basilea Pharmaceutica (1)</li><li>Lumicell (1)</li><li>ImmunGene (1)</li><li>Day One Biopharmaceuticals (1)</li><li>Geron Corporation (1)</li><li>X4 Pharmaceuticals (1)</li><li>Verona Pharma (1)</li><li>Ascendis Pharma (1)</li><li>CymaBay / Gilead (1)</li><li>Zevra Therapeutics (1)</li><li>IntraBio (1)</li><li>BridgeBio Pharma (1)</li><li>Iterum Therapeutics (1)</li><li>Merus (1)</li><li>Autolus Therapeutics (1)</li><li>Checkpoint Therapeutics (1)</li><li>Mesoblast (1)</li><li>Vertex Pharmaceuticals (1)</li><li>Xcovery Holdings (1)</li><li>AOP Orphan Pharmaceuticals (1)</li><li>Bracco Diagnostic (1)</li><li>Ionis Pharmaceuticals (1)</li><li>Neurocrine Biosciences (1)</li>
         </ul>
       </div>
     </div>
@@ -369,14 +494,15 @@ a:hover {{ text-decoration: underline; }}
         <tr><td>Dermatology</td><td>3</td><td>3</td><td>6</td></tr>
         <tr><td>Hematology</td><td>4</td><td>1</td><td>5</td></tr>
         <tr><td>Rare Disease</td><td>0</td><td>4</td><td>4</td></tr>
-        <tr><td>Cardiovascular</td><td>3</td><td>1</td><td>4</td></tr>
+        <tr><td>Cardiovascular / Metabolic</td><td>3</td><td>3</td><td>6</td></tr>
         <tr><td>Hepatology</td><td>1</td><td>2</td><td>3</td></tr>
         <tr><td>Infectious Disease</td><td>0</td><td>3</td><td>3</td></tr>
         <tr><td>Neurology / Psychiatry</td><td>2</td><td>0</td><td>2</td></tr>
         <tr><td>Pulmonology</td><td>0</td><td>2</td><td>2</td></tr>
         <tr><td>Nephrology</td><td>0</td><td>1</td><td>1</td></tr>
-        <tr><td>Endocrinology</td><td>0</td><td>1</td><td>1</td></tr>
-        <tr class="total-row"><td>합계</td><td>21</td><td>29</td><td>50</td></tr>
+        <tr><td>Endocrinology</td><td>0</td><td>2</td><td>2</td></tr>
+        <tr><td>Radiology / Diagnostics</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr class="total-row"><td>합계</td><td>21</td><td>33</td><td>54</td></tr>
       </tbody>
     </table>
   </div>
@@ -386,7 +512,7 @@ a:hover {{ text-decoration: underline; }}
     <h2>💡 Key Insights – 2024 FDA Novel Drugs</h2>
     <div class="insights-grid">
       <div class="insight-card">
-        <strong>① 항암제 최다 (19/50, 38%)</strong>
+        <strong>① 항암제 최다 (19/54, 35%)</strong>
         2024년은 역대 가장 높은 항암제 비중. NSCLC·혈액암·담도암 등 표적치료제 중심. 특히 Lazcluze(EGFR), Bizengri(NRG1), Ensacove(ALK)로 NSCLC 바이오마커 세분화가 심화됐음.
       </div>
       <div class="insight-card">
@@ -395,25 +521,25 @@ a:hover {{ text-decoration: underline; }}
       </div>
       <div class="insight-card">
         <strong>③ 간질환 3종 동시 승인</strong>
-        Rezdiffra(resmetirom, MASH 최초 약물), Iqirvo(elafibranor, PBC), Livdelzi(seladelpar, PBC) — MASH/PBC 시장이 본격 개막. 3개 모두 fibrosis 또는 alkaline phosphatase 대리 지표 기반 승인.
+        Rezdiffra(resmetirom, MASH 최초 약물·가속승인), Iqirvo(elafibranor, PBC·가속승인), Livdelzi(seladelpar, PBC·가속승인) — MASH/PBC 시장이 본격 개막. 3개 모두 fibrosis 또는 alkaline phosphatase 대리 지표 기반 가속승인.
       </div>
       <div class="insight-card">
         <strong>④ Dermatology 풍작 (6개)</strong>
         Zelsuvmi(molluscum), Letybo(미간주름), Sofdra(다한증), Leqselvi(원형탈모), Nemluvio(결절성양진), Ebglyss(아토피) — 피부과 영역에서 다양한 기전의 신약이 한 해에 6개 승인. IL-31·JAK 경로 주목.
       </div>
       <div class="insight-card">
-        <strong>⑤ Accelerated Approval 20% (10/50)</strong>
-        Ojemda, Imdelltra, Iqirvo, Nemluvio, Livdelzi, Niktimvo, Itovebi, Ziihera, Bizengri, Revuforj — 10개가 가속승인. 주로 희귀암 또는 대리지표 기반. FDA의 조건부 승인 활용이 확대됨.
+        <strong>⑤ Accelerated Approval 14% (7/50)</strong>
+        Bizengri, Imdelltra, Iqirvo, Livdelzi, Ojemda, Rezdiffra, Ziihera — FDA 공식 7개 가속승인. 주로 희귀암·대리지표 기반. Rezdiffra(MASH 최초 치료제)도 포함. Nemluvio·Niktimvo·Itovebi·Revuforj는 가속승인 아님.
       </div>
       <div class="insight-card">
-        <strong>⑥ Resubmission 4개 — 포기하지 않은 약들</strong>
-        Vafseo(빈혈 치료), Letybo(보툴리눔), Ebglyss(아토피), Vyloy(위암) — CRL 후 재신청으로 승인. 특히 Vyloy(zolbetuximab)는 CLDN18.2 표적 최초 약물로 새로운 바이오마커 영역 개척.
+        <strong>⑥ Resubmission 5개 — 포기하지 않은 약들</strong>
+        Vafseo(빈혈 치료), Letybo(보툴리눔), Ebglyss(아토피), Vyloy(위암), Rapiblyk(빈맥) — CRL 후 재신청으로 승인. 특히 Vyloy(zolbetuximab)는 CLDN18.2 표적 최초 약물로 새로운 바이오마커 영역 개척.
       </div>
     </div>
   </div>
 
   <div class="footer">
-    FDA 2024 Novel Drug Approvals Analysis &nbsp;|&nbsp; Content as of {today}<br>
+    FDA 2024 Novel Drug Approvals Analysis &nbsp;|&nbsp; Content as of 2026-07-01<br>
     <a href="FDA Novel Drug Approvals 2024 Dashboard.html">← 2024 대시보드로 돌아가기</a>
   </div>
 

@@ -153,7 +153,7 @@ insights = [
     ("Alzheimer 논란: Aduhelm AA 승인", "Biogen의 aducanumab은 FDA 자문위원이 10대 0으로 반대했음에도 AA로 승인. 임상적 유용성(Clinical Benefit) 논란, CMS의 보험 적용 제한, 결국 2024년 자발적 철회. FDA AA 제도의 한계와 개혁 논의를 촉발한 사례."),
     ("17건 AA — 역대 최고 수준", "전체 52건 중 17건(33%)이 Accelerated Approval. 이 중 Ukoniq, Pepaxto, Truseltiq, Exkivity는 이후 자발적으로 철회됨. AA 제도의 남용 우려와 2022 FDORA 개혁(사전 확증 시험 의무화)으로 이어지는 배경."),
     ("Long-acting & RNA 기반 치료법 대거 등장", "Cabenuva(월 1회 HIV 주사), Leqvio(연 2회 siRNA), Rylaze(재조합 에스파라기나제), Skytrofa(주 1회 성장호르몬). RNA 기술과 장기작용 제형이 2021년부터 본격화됨."),
-    ("Rare Disease 6건 + 보건 불평등 해소 약물", "Nulibry(MoCD), Ryplazim(혈중plasminogen 결핍), Bylvay/Livmarli(PFIC·Alagille), Nexviazyme(Pompe), Voxzogo(연골무형성증) — 초희귀질환 6건. Fexinidazole(수면병, Sanofi/DNDi 협업)은 글로벌 보건 불평등 해소형 승인 사례."),
+    ("Rare Disease 5건 + 보건 불평등 해소 약물", "Nulibry(MoCD), Bylvay/Livmarli(PFIC·Alagille), Nexviazyme(Pompe), Voxzogo(연골무형성증) — 초희귀질환 5건. Fexinidazole(수면병, Sanofi/DNDi 협업)은 글로벌 보건 불평등 해소형 승인 사례."),
     ("CGRP·S1P·IBAT 등 신규 MOA 정착 원년", "Qulipta(atogepant, CGRP 수용체 길항제 최초 예방용), Ponvory(ponesimod, S1P 모듈레이터), Bylvay·Livmarli(IBAT 억제제), Welireg(HIF-2α 최초 억제제) — 2021년은 이전까지 임상단계였던 다수 신규 MOA가 시장에 정착한 원년."),
 ]
 
@@ -247,14 +247,80 @@ header p {{ font-size: 13px; opacity: 0.82; }}
 
 <header>
   <h1>FDA 2021 Novel Drugs – Therapeutic Area & Company Analysis</h1>
-  <p>Content current as of {today} &nbsp;|&nbsp; {total} novel drug approvals &nbsp;|&nbsp; Big Pharma {n_big} / Biotech {n_bio} &nbsp;|&nbsp; Accelerated Approval 17건</p>
+  <p>Content current as of {today} &nbsp;|&nbsp; 50 novel drug approvals &nbsp;|&nbsp; Big Pharma 20 / Biotech 30 &nbsp;|&nbsp; Accelerated Approval 14건</p>
 </header>
 
 <div class="grid-2">
   <!-- TA Bar Chart -->
   <div class="card">
-    <h2>Therapeutic Area Breakdown (전체 {total}건)</h2>
-    {ta_bars}
+    <h2>Therapeutic Area Breakdown (전체 50건)</h2>
+    
+    <div class="bar-row">
+      <div class="bar-label">Oncology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#c8303a"></div></div>
+      <div class="bar-count">17</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Neurology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:47.1%;background:#2657a8"></div></div>
+      <div class="bar-count">8</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Rare Disease</div>
+      <div class="bar-track"><div class="bar-fill" style="width:29.4%;background:#3e8e6e"></div></div>
+      <div class="bar-count">5</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Infectious Disease</div>
+      <div class="bar-track"><div class="bar-fill" style="width:23.5%;background:#e07020"></div></div>
+      <div class="bar-count">4</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Nephrology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:17.6%;background:#3473d0"></div></div>
+      <div class="bar-count">3</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Cardiovascular</div>
+      <div class="bar-track"><div class="bar-fill" style="width:17.6%;background:#1a6e4a"></div></div>
+      <div class="bar-count">3</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Immunology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:11.8%;background:#4a90e2"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Women's Health</div>
+      <div class="bar-track"><div class="bar-fill" style="width:5.9%;background:#6aa3e8"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Hematology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:11.8%;background:#9b5ccc"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Endocrinology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:11.8%;background:#56b38a"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Radiology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:5.9%;background:#88b8ef"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="bar-label">Pulmonology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:5.9%;background:#92dab8"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Dermatology</div>
+      <div class="bar-track"><div class="bar-fill" style="width:5.9%;background:#b8a0f0"></div></div>
+      <div class="bar-count">1</div>
+    </div>
   </div>
 
   <!-- Donut + Cross table -->
@@ -264,19 +330,19 @@ header p {{ font-size: 13px; opacity: 0.82; }}
       <svg class="donut-svg" width="130" height="130" viewBox="0 0 130 130">
         <circle cx="65" cy="65" r="52" fill="none" stroke="#eef1fa" stroke-width="22"/>
         <circle cx="65" cy="65" r="52" fill="none" stroke="#16243f" stroke-width="22"
-          stroke-dasharray="{pct_big/100*327:.1f} {(1-pct_big/100)*327:.1f}"
+          stroke-dasharray="130.7 196.0"
           stroke-dashoffset="81.75" transform="rotate(-90 65 65)"/>
         <circle cx="65" cy="65" r="52" fill="none" stroke="#2657a8" stroke-width="22"
-          stroke-dasharray="{pct_bio/100*327:.1f} {(1-pct_bio/100)*327:.1f}"
-          stroke-dashoffset="{81.75 - pct_big/100*327:.1f}" transform="rotate(-90 65 65)"/>
-        <text x="65" y="60" text-anchor="middle" font-size="18" font-weight="700" fill="#16243f">{total}</text>
+          stroke-dasharray="196.0 130.7"
+          stroke-dashoffset="-49.0" transform="rotate(-90 65 65)"/>
+        <text x="65" y="60" text-anchor="middle" font-size="18" font-weight="700" fill="#16243f">50</text>
         <text x="65" y="76" text-anchor="middle" font-size="10" fill="#8a94a6">총 승인</text>
       </svg>
       <div class="donut-legend">
         <div class="legend-item"><div class="legend-dot" style="background:#16243f"></div>
-          <span class="legend-text">Big Pharma <span class="legend-val">{n_big}건 ({pct_big:.0f}%)</span></span></div>
+          <span class="legend-text">Big Pharma <span class="legend-val">20건 (40%)</span></span></div>
         <div class="legend-item"><div class="legend-dot" style="background:#2657a8"></div>
-          <span class="legend-text">Biotech <span class="legend-val">{n_bio}건 ({pct_bio:.0f}%)</span></span></div>
+          <span class="legend-text">Biotech <span class="legend-val">30건 (60%)</span></span></div>
       </div>
     </div>
 
@@ -290,21 +356,21 @@ header p {{ font-size: 13px; opacity: 0.82; }}
       </tr>
       <tr>
         <td class="row-head">Accelerated Approval</td>
-        <td>{aa_big}</td>
-        <td>{aa_bio}</td>
-        <td class="total-cell">17</td>
+        <td>5</td>
+        <td>9</td>
+        <td class="total-cell">14</td>
       </tr>
       <tr>
         <td class="row-head">Regular Approval</td>
-        <td>{naa_big}</td>
-        <td>{naa_bio}</td>
-        <td class="total-cell">{total-17}</td>
+        <td>15</td>
+        <td>21</td>
+        <td class="total-cell">36</td>
       </tr>
       <tr>
         <td class="row-head total-cell">합계</td>
-        <td class="total-cell">{n_big}</td>
-        <td class="total-cell">{n_bio}</td>
-        <td class="total-cell">{total}</td>
+        <td class="total-cell">20</td>
+        <td class="total-cell">30</td>
+        <td class="total-cell">50</td>
       </tr>
     </table>
   </div>
@@ -314,19 +380,69 @@ header p {{ font-size: 13px; opacity: 0.82; }}
 <div class="grid-2">
   <div class="card">
     <h2>Oncology 세부 적응증 (17건)</h2>
-    {onc_bars}
+    
+    <div class="bar-row">
+      <div class="bar-label">NSCLC (비소세포폐암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#c8303a"></div></div>
+      <div class="bar-count">4</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Blood Cancer / Lymphoma (혈액암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#c8303a"></div></div>
+      <div class="bar-count">4</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Renal Cancer (신장암·VHL)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#c8303a"></div></div>
+      <div class="bar-count">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">ALL / LBL (급성림프모구백혈병)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Endometrial Cancer (자궁내막암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Cervical Cancer (자궁경부암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Ovarian Cancer (난소암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Cholangiocarcinoma (담관암)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Polycythemia Vera (적혈구증가증)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Myelosuppression Support</div>
+      <div class="bar-track"><div class="bar-fill" style="width:25.0%;background:#c8303a"></div></div>
+      <div class="bar-count">1</div>
+    </div>
   </div>
 
   <!-- Company Tables -->
   <div class="card">
     <h2>주요 제약사 / 바이오텍 현황</h2>
-    <div class="section-title">Big Pharma ({n_big}건)</div>
+    <div class="section-title">Big Pharma (20건)</div>
     <table class="co-table" style="margin-bottom:18px">
-      {big_rows}
+      <tr><td>Janssen / J&J</td><td style='text-align:center;font-weight:700;color:#16243f'>2</td></tr><tr><td>Merck</td><td style='text-align:center;font-weight:700;color:#16243f'>2</td></tr><tr><td>Sanofi</td><td style='text-align:center;font-weight:700;color:#16243f'>2</td></tr><tr><td>AstraZeneca</td><td style='text-align:center;font-weight:700;color:#16243f'>2</td></tr><tr><td>Novartis</td><td style='text-align:center;font-weight:700;color:#16243f'>2</td></tr><tr><td>Takeda</td><td style='text-align:center;font-weight:700;color:#16243f'>2</td></tr><tr><td>Bayer</td><td style='text-align:center;font-weight:700;color:#16243f'>2</td></tr><tr><td>GlaxoSmithKline</td><td style='text-align:center;font-weight:700;color:#16243f'>1</td></tr><tr><td>Regeneron</td><td style='text-align:center;font-weight:700;color:#16243f'>1</td></tr><tr><td>EMD Serono / Merck KGaA</td><td style='text-align:center;font-weight:700;color:#16243f'>1</td></tr><tr><td>Amgen</td><td style='text-align:center;font-weight:700;color:#16243f'>1</td></tr><tr><td>AbbVie</td><td style='text-align:center;font-weight:700;color:#16243f'>1</td></tr><tr><td>ViiV Healthcare</td><td style='text-align:center;font-weight:700;color:#16243f'>1</td></tr><tr><td>Biogen</td><td style='text-align:center;font-weight:700;color:#16243f'>1</td></tr>
     </table>
-    <div class="section-title">Biotech ({n_bio}건)</div>
+    <div class="section-title">Biotech (32건)</div>
     <table class="co-table">
-      {bio_rows}
+      <tr><td>Sarepta Therapeutics</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Aurinia Pharmaceuticals</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>TG Therapeutics</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>G1 Therapeutics</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>AVEO Pharmaceuticals</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>KemPharm / Corium</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Supernus Pharmaceuticals</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>ADC Therapeutics</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Mayne Pharma / Theramex</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Apellis Pharmaceuticals</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Lantheus Holdings</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>MyoVant Sciences</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>BridgeBio / QED</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Oncopeptides</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>PTC Therapeutics</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Alkermes</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>SCYNEXIS</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Liminal BioSciences</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Jazz Pharmaceuticals</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Albireo Pharma</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Kadmon Pharmaceuticals</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Cara Therapeutics</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Ascendis Pharma</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Seagen / Genmab</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Mirum Pharmaceuticals</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>ChemoCentryx</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>PharmaEssentia</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>BioMarin Pharmaceutical</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>On Target Laboratories</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>argenx</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>Ardelyx</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr><tr><td>LEO Pharma</td><td style='text-align:center;font-weight:700;color:#2657a8'>1</td></tr>
     </table>
   </div>
 </div>
@@ -338,11 +454,35 @@ header p {{ font-size: 13px; opacity: 0.82; }}
   </div>
 </div>
 <div class="insights-grid">
-  {insight_cards}
+  
+    <div class="insight-card">
+      <div class="insight-title">KRAS G12C: 'Undruggable'의 첫 붕괴</div>
+      <div class="insight-body">Lumakras(sotorasib)가 KRAS G12C 돌연변이를 최초로 타겟한 약물로 승인 — 수십 년간 '불가능'으로 여겨진 표적의 역사적 돌파구. 이후 adagrasib(2022), 다수 병용요법으로 이어지는 플랫폼 등장의 시발점.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-title">Alzheimer 논란: Aduhelm AA 승인</div>
+      <div class="insight-body">Biogen의 aducanumab은 FDA 자문위원이 10대 0으로 반대했음에도 AA로 승인. 임상적 유용성(Clinical Benefit) 논란, CMS의 보험 적용 제한, 결국 2024년 자발적 철회. FDA AA 제도의 한계와 개혁 논의를 촉발한 사례.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-title">17건 AA — 역대 최고 수준</div>
+      <div class="insight-body">전체 52건 중 17건(33%)이 Accelerated Approval. 이 중 Ukoniq, Pepaxto, Truseltiq, Exkivity는 이후 자발적으로 철회됨. AA 제도의 남용 우려와 2022 FDORA 개혁(사전 확증 시험 의무화)으로 이어지는 배경.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-title">Long-acting & RNA 기반 치료법 대거 등장</div>
+      <div class="insight-body">Cabenuva(월 1회 HIV 주사), Leqvio(연 2회 siRNA), Rylaze(재조합 에스파라기나제), Skytrofa(주 1회 성장호르몬). RNA 기술과 장기작용 제형이 2021년부터 본격화됨.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-title">Rare Disease 5건 + 보건 불평등 해소 약물</div>
+      <div class="insight-body">Nulibry(MoCD), Bylvay/Livmarli(PFIC·Alagille), Nexviazyme(Pompe), Voxzogo(연골무형성증) — 초희귀질환 5건. Fexinidazole(수면병, Sanofi/DNDi 협업)은 글로벌 보건 불평등 해소형 승인 사례.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-title">CGRP·S1P·IBAT 등 신규 MOA 정착 원년</div>
+      <div class="insight-body">Qulipta(atogepant, CGRP 수용체 길항제 최초 예방용), Ponvory(ponesimod, S1P 모듈레이터), Bylvay·Livmarli(IBAT 억제제), Welireg(HIF-2α 최초 억제제) — 2021년은 이전까지 임상단계였던 다수 신규 MOA가 시장에 정착한 원년.</div>
+    </div>
 </div>
 
 <div class="footer">
-  Data source: FDA Novel Drug Approvals 2021 (CDER) &nbsp;|&nbsp; Built: {today}
+  Data source: FDA Novel Drug Approvals 2021 (CDER) &nbsp;|&nbsp; Built: 2026-07-02
 </div>
 
 </div>
